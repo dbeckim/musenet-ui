@@ -1,2 +1,2 @@
 # Musician's Network
-Application for Musicians
+Application for the music community to meet and collaborate. 
