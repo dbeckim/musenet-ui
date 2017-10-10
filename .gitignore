@@ -1,5 +1,5 @@
 ## Adapted from https://github.com/github/gitignore/blob/master/Global/Xcode.gitignore
-
+## Xcode specific
 xcuserdata/
 *.xcscmblueprint
 *.xccheckout
@@ -14,3 +14,6 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+
+## other
+*.DS_Store
