@@ -35,11 +35,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Registers cell object as a part of tableview as "cell"
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        tableView.delegate = self
         genreLabel.text = "Pick a genre."
         genreLabel.font = genreLabel.font.withSize(50)
         genreLabel.textAlignment = .center
         genreLabel.minimumScaleFactor = 0.1
         genreLabel.adjustsFontSizeToFitWidth = true //allows label font to rescale depending on size of array
+        
+        
     }
     
     //Initializes the number of rows in the tableview as the number of objects in genre list
@@ -49,7 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //Initializes values for the table view cells corresponding to items in the genre list
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
+        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
         
         cell.textLabel?.text = self.genreData[indexPath.row]
         
