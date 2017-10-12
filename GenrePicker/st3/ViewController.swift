@@ -35,6 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Registers cell object as a part of tableview as "cell"
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        tableView.dataSource = self
         tableView.delegate = self
         genreLabel.text = "Pick a genre."
         genreLabel.font = genreLabel.font.withSize(50)
