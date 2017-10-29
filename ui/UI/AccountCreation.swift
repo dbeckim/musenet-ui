@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AccountCreation.swift
 //  AccountCreation
 //
 //  Created by Kevin S Delay on 10/17/17.
@@ -12,7 +12,7 @@ import UIKit
 
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //IBOutlets
 
     @IBOutlet weak var EmailIn: UITextField!

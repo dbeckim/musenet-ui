@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F003CFDA1FA27001007A9922 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F003CFD91FA27001007A9922 /* HttpRequest.swift */; };
 		F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE011F96952E0045DC8B /* AppDelegate.swift */; };
-		F081CE041F96952E0045DC8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE031F96952E0045DC8B /* ViewController.swift */; };
+		F081CE041F96952E0045DC8B /* AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE031F96952E0045DC8B /* AccountCreation.swift */; };
 		F081CE071F96952E0045DC8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F081CE051F96952E0045DC8B /* Main.storyboard */; };
 		F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F081CE081F96952E0045DC8B /* AccountCreation.xcdatamodeld */; };
 		F081CE0C1F96952F0045DC8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F081CE0B1F96952F0045DC8B /* Assets.xcassets */; };
@@ -39,7 +39,7 @@
 		F003CFD91FA27001007A9922 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		F081CDFE1F96952E0045DC8B /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CE011F96952E0045DC8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F081CE031F96952E0045DC8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F081CE031F96952E0045DC8B /* AccountCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreation.swift; sourceTree = "<group>"; };
 		F081CE061F96952E0045DC8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F081CE091F96952E0045DC8B /* AccountCreation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AccountCreation.xcdatamodel; sourceTree = "<group>"; };
 		F081CE0B1F96952F0045DC8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		135E2DE91FA6615800CF6552 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				F081CE031F96952E0045DC8B /* ViewController.swift */,
+				F081CE031F96952E0045DC8B /* AccountCreation.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F081CE041F96952E0045DC8B /* ViewController.swift in Sources */,
+				F081CE041F96952E0045DC8B /* AccountCreation.swift in Sources */,
 				F003CFDA1FA27001007A9922 /* HttpRequest.swift in Sources */,
 				F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */,
 				F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */,
