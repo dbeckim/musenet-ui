@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		F003CFD91FA27001007A9922 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
-		F081CDFE1F96952E0045DC8B /* AccountCreation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountCreation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F081CDFE1F96952E0045DC8B /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CE011F96952E0045DC8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F081CE031F96952E0045DC8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F081CE061F96952E0045DC8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,10 +45,10 @@
 		F081CE0B1F96952F0045DC8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F081CE0E1F96952F0045DC8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F081CE101F96952F0045DC8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F081CE151F96952F0045DC8B /* AccountCreationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccountCreationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F081CE151F96952F0045DC8B /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CE191F96952F0045DC8B /* AccountCreationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationTests.swift; sourceTree = "<group>"; };
 		F081CE1B1F96952F0045DC8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F081CE201F96952F0045DC8B /* AccountCreationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccountCreationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F081CE201F96952F0045DC8B /* UIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CE241F96952F0045DC8B /* AccountCreationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationUITests.swift; sourceTree = "<group>"; };
 		F081CE261F96952F0045DC8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,9 +81,9 @@
 		F081CDF51F96952E0045DC8B = {
 			isa = PBXGroup;
 			children = (
-				F081CE001F96952E0045DC8B /* AccountCreation */,
-				F081CE181F96952F0045DC8B /* AccountCreationTests */,
-				F081CE231F96952F0045DC8B /* AccountCreationUITests */,
+				F081CE001F96952E0045DC8B /* UI */,
+				F081CE181F96952F0045DC8B /* Tests */,
+				F081CE231F96952F0045DC8B /* UnitTests */,
 				F081CDFF1F96952E0045DC8B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,14 +91,14 @@
 		F081CDFF1F96952E0045DC8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F081CDFE1F96952E0045DC8B /* AccountCreation.app */,
-				F081CE151F96952F0045DC8B /* AccountCreationTests.xctest */,
-				F081CE201F96952F0045DC8B /* AccountCreationUITests.xctest */,
+				F081CDFE1F96952E0045DC8B /* UI.app */,
+				F081CE151F96952F0045DC8B /* UITests.xctest */,
+				F081CE201F96952F0045DC8B /* UIUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F081CE001F96952E0045DC8B /* AccountCreation */ = {
+		F081CE001F96952E0045DC8B /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				F081CE011F96952E0045DC8B /* AppDelegate.swift */,
@@ -110,33 +110,35 @@
 				F081CE101F96952F0045DC8B /* Info.plist */,
 				F081CE081F96952E0045DC8B /* AccountCreation.xcdatamodeld */,
 			);
-			path = AccountCreation;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		F081CE181F96952F0045DC8B /* AccountCreationTests */ = {
+		F081CE181F96952F0045DC8B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				F081CE191F96952F0045DC8B /* AccountCreationTests.swift */,
 				F081CE1B1F96952F0045DC8B /* Info.plist */,
 			);
-			path = AccountCreationTests;
+			name = Tests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
-		F081CE231F96952F0045DC8B /* AccountCreationUITests */ = {
+		F081CE231F96952F0045DC8B /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
 				F081CE241F96952F0045DC8B /* AccountCreationUITests.swift */,
 				F081CE261F96952F0045DC8B /* Info.plist */,
 			);
-			path = AccountCreationUITests;
+			name = UnitTests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F081CDFD1F96952E0045DC8B /* AccountCreation */ = {
+		F081CDFD1F96952E0045DC8B /* UI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F081CE291F96952F0045DC8B /* Build configuration list for PBXNativeTarget "AccountCreation" */;
+			buildConfigurationList = F081CE291F96952F0045DC8B /* Build configuration list for PBXNativeTarget "UI" */;
 			buildPhases = (
 				F081CDFA1F96952E0045DC8B /* Sources */,
 				F081CDFB1F96952E0045DC8B /* Frameworks */,
@@ -146,14 +148,14 @@
 			);
 			dependencies = (
 			);
-			name = AccountCreation;
+			name = UI;
 			productName = AccountCreation;
-			productReference = F081CDFE1F96952E0045DC8B /* AccountCreation.app */;
+			productReference = F081CDFE1F96952E0045DC8B /* UI.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F081CE141F96952F0045DC8B /* AccountCreationTests */ = {
+		F081CE141F96952F0045DC8B /* UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F081CE2C1F96952F0045DC8B /* Build configuration list for PBXNativeTarget "AccountCreationTests" */;
+			buildConfigurationList = F081CE2C1F96952F0045DC8B /* Build configuration list for PBXNativeTarget "UITests" */;
 			buildPhases = (
 				F081CE111F96952F0045DC8B /* Sources */,
 				F081CE121F96952F0045DC8B /* Frameworks */,
@@ -164,14 +166,14 @@
 			dependencies = (
 				F081CE171F96952F0045DC8B /* PBXTargetDependency */,
 			);
-			name = AccountCreationTests;
+			name = UITests;
 			productName = AccountCreationTests;
-			productReference = F081CE151F96952F0045DC8B /* AccountCreationTests.xctest */;
+			productReference = F081CE151F96952F0045DC8B /* UITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F081CE1F1F96952F0045DC8B /* AccountCreationUITests */ = {
+		F081CE1F1F96952F0045DC8B /* UIUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F081CE2F1F96952F0045DC8B /* Build configuration list for PBXNativeTarget "AccountCreationUITests" */;
+			buildConfigurationList = F081CE2F1F96952F0045DC8B /* Build configuration list for PBXNativeTarget "UIUITests" */;
 			buildPhases = (
 				F081CE1C1F96952F0045DC8B /* Sources */,
 				F081CE1D1F96952F0045DC8B /* Frameworks */,
@@ -182,9 +184,9 @@
 			dependencies = (
 				F081CE221F96952F0045DC8B /* PBXTargetDependency */,
 			);
-			name = AccountCreationUITests;
+			name = UIUITests;
 			productName = AccountCreationUITests;
-			productReference = F081CE201F96952F0045DC8B /* AccountCreationUITests.xctest */;
+			productReference = F081CE201F96952F0045DC8B /* UIUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -213,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F081CDF91F96952E0045DC8B /* Build configuration list for PBXProject "AccountCreation" */;
+			buildConfigurationList = F081CDF91F96952E0045DC8B /* Build configuration list for PBXProject "UI" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -226,9 +228,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F081CDFD1F96952E0045DC8B /* AccountCreation */,
-				F081CE141F96952F0045DC8B /* AccountCreationTests */,
-				F081CE1F1F96952F0045DC8B /* AccountCreationUITests */,
+				F081CDFD1F96952E0045DC8B /* UI */,
+				F081CE141F96952F0045DC8B /* UITests */,
+				F081CE1F1F96952F0045DC8B /* UIUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -293,12 +295,12 @@
 /* Begin PBXTargetDependency section */
 		F081CE171F96952F0045DC8B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F081CDFD1F96952E0045DC8B /* AccountCreation */;
+			target = F081CDFD1F96952E0045DC8B /* UI */;
 			targetProxy = F081CE161F96952F0045DC8B /* PBXContainerItemProxy */;
 		};
 		F081CE221F96952F0045DC8B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F081CDFD1F96952E0045DC8B /* AccountCreation */;
+			target = F081CDFD1F96952E0045DC8B /* UI */;
 			targetProxy = F081CE211F96952F0045DC8B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -422,9 +424,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AccountCreation/Info.plist;
+				INFOPLIST_FILE = UI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = UVM.AccountCreation;
+				PRODUCT_BUNDLE_IDENTIFIER = UVM.UI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -434,9 +436,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AccountCreation/Info.plist;
+				INFOPLIST_FILE = UI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = UVM.AccountCreation;
+				PRODUCT_BUNDLE_IDENTIFIER = UVM.UI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -452,7 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = UVM.AccountCreationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccountCreation.app/AccountCreation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UI.app/UI";
 			};
 			name = Debug;
 		};
@@ -466,7 +468,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = UVM.AccountCreationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccountCreation.app/AccountCreation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UI.app/UI";
 			};
 			name = Release;
 		};
@@ -499,7 +501,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F081CDF91F96952E0045DC8B /* Build configuration list for PBXProject "AccountCreation" */ = {
+		F081CDF91F96952E0045DC8B /* Build configuration list for PBXProject "UI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F081CE271F96952F0045DC8B /* Debug */,
@@ -508,7 +510,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F081CE291F96952F0045DC8B /* Build configuration list for PBXNativeTarget "AccountCreation" */ = {
+		F081CE291F96952F0045DC8B /* Build configuration list for PBXNativeTarget "UI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F081CE2A1F96952F0045DC8B /* Debug */,
@@ -517,7 +519,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F081CE2C1F96952F0045DC8B /* Build configuration list for PBXNativeTarget "AccountCreationTests" */ = {
+		F081CE2C1F96952F0045DC8B /* Build configuration list for PBXNativeTarget "UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F081CE2D1F96952F0045DC8B /* Debug */,
@@ -526,7 +528,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F081CE2F1F96952F0045DC8B /* Build configuration list for PBXNativeTarget "AccountCreationUITests" */ = {
+		F081CE2F1F96952F0045DC8B /* Build configuration list for PBXNativeTarget "UIUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F081CE301F96952F0045DC8B /* Debug */,

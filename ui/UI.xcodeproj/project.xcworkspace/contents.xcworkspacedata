@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AccountCreation.xcodeproj">
+      location = "self:/Users/bmckallagat/school/apps/musiciansnetwork/AccountCreation/UI.xcodeproj">
    </FileRef>
 </Workspace>
