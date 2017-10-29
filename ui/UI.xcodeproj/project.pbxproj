@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F003CFDA1FA27001007A9922 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F003CFD91FA27001007A9922 /* HttpRequest.swift */; };
+		13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0FA031FA6635300EA7970 /* AccountCreation.swift */; };
+		13D0FA071FA6635F00EA7970 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0FA061FA6635F00EA7970 /* HttpRequest.swift */; };
 		F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE011F96952E0045DC8B /* AppDelegate.swift */; };
-		F081CE041F96952E0045DC8B /* AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE031F96952E0045DC8B /* AccountCreation.swift */; };
 		F081CE071F96952E0045DC8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F081CE051F96952E0045DC8B /* Main.storyboard */; };
 		F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F081CE081F96952E0045DC8B /* AccountCreation.xcdatamodeld */; };
 		F081CE0C1F96952F0045DC8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F081CE0B1F96952F0045DC8B /* Assets.xcassets */; };
@@ -36,10 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F003CFD91FA27001007A9922 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		13D0FA031FA6635300EA7970 /* AccountCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreation.swift; sourceTree = "<group>"; };
+		13D0FA061FA6635F00EA7970 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		F081CDFE1F96952E0045DC8B /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CE011F96952E0045DC8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F081CE031F96952E0045DC8B /* AccountCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreation.swift; sourceTree = "<group>"; };
 		F081CE061F96952E0045DC8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F081CE091F96952E0045DC8B /* AccountCreation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AccountCreation.xcdatamodel; sourceTree = "<group>"; };
 		F081CE0B1F96952F0045DC8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,20 +78,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		135E2DE81FA6614C00CF6552 /* util */ = {
+		13D0FA021FA6635300EA7970 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				F003CFD91FA27001007A9922 /* HttpRequest.swift */,
+				13D0FA031FA6635300EA7970 /* AccountCreation.swift */,
 			);
-			name = util;
+			path = controller;
 			sourceTree = "<group>";
 		};
-		135E2DE91FA6615800CF6552 /* controller */ = {
+		13D0FA051FA6635F00EA7970 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				F081CE031F96952E0045DC8B /* AccountCreation.swift */,
+				13D0FA061FA6635F00EA7970 /* HttpRequest.swift */,
 			);
-			name = controller;
+			path = util;
 			sourceTree = "<group>";
 		};
 		F081CDF51F96952E0045DC8B = {
@@ -117,12 +117,12 @@
 		F081CE001F96952E0045DC8B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				135E2DE91FA6615800CF6552 /* controller */,
-				135E2DE81FA6614C00CF6552 /* util */,
 				F081CE011F96952E0045DC8B /* AppDelegate.swift */,
 				F081CE051F96952E0045DC8B /* Main.storyboard */,
+				13D0FA021FA6635300EA7970 /* controller */,
 				F081CE0B1F96952F0045DC8B /* Assets.xcassets */,
 				F081CE0D1F96952F0045DC8B /* LaunchScreen.storyboard */,
+				13D0FA051FA6635F00EA7970 /* util */,
 				F081CE101F96952F0045DC8B /* Info.plist */,
 				F081CE081F96952E0045DC8B /* AccountCreation.xcdatamodeld */,
 			);
@@ -283,8 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F081CE041F96952E0045DC8B /* AccountCreation.swift in Sources */,
-				F003CFDA1FA27001007A9922 /* HttpRequest.swift in Sources */,
+				13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */,
+				13D0FA071FA6635F00EA7970 /* HttpRequest.swift in Sources */,
 				F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */,
 				F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */,
 			);
