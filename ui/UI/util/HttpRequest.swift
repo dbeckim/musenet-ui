@@ -47,7 +47,7 @@ public func get(action : String, searchBy : String, completion: @escaping (Any?)
  HTTP POST request to server side API. jsonObj is the JSON Object being passed to the
  database, and action determines which database will be added to.
  */
-public func post(jsonObj : Data?, action: String, completion: @escaping (Int?) -> Void){
+public func post(jsonObj : Data?, action: String, completion: @escaping (Any?) -> Void){
     let url = URL(string: "http://bmckalla.w3.uvm.edu/api/api.py?action=" + action)!
     //New HTTP POST request with URL string
     var request = URLRequest(url: url)
@@ -60,7 +60,7 @@ public func post(jsonObj : Data?, action: String, completion: @escaping (Int?) -
     let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
         
         
-        //Error handler for HTTP request
+        //Error handler for HTTP reques
         let httpResponse = response as? HTTPURLResponse
         if(httpResponse!.statusCode != 200){
             completion(httpResponse!.statusCode)
@@ -68,7 +68,7 @@ public func post(jsonObj : Data?, action: String, completion: @escaping (Int?) -
         }else{
             //Prints success if post is successful
             let data = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print(data!)
+            completion(data!)
         }
     }
     
