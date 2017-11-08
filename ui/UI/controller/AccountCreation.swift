@@ -32,7 +32,15 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         
         //Creating Json object to pass to HTTP Request, need more validation for inputs
-        if PasswordIn.text == PasswordConfirm.text{
+        if PasswordIn.text != PasswordConfirm.text{
+            createAlert(title:"Attention", message: "Passwords do not match!")
+        }
+        //Just testing length to validate email ATM
+        else if (EmailIn.text!.characters.count < 10){
+            createAlert(title:"Attention", message:"Email invalid")
+        }
+        
+        else{
             let jsonObject: [String: Any] = [
                 "email":EmailIn.text!,
                 "name" : NameIn.text!,
@@ -42,6 +50,8 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
                 "location": LocationIn.text!,
                 "bio":BioIn.text!,
                 "phone":PhoneIn.text!
+               
+                
                 
                 ]
             let jsonData:Data
@@ -68,9 +78,6 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
                 print("failed")
             }
             
-        }
-        else{
-            createAlert(title:"Attention", message: "Passwords do not match!")
         }
         
         
@@ -102,6 +109,8 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.InstrumentsIn.register(UITableViewCell.self, forCellReuseIdentifier: "cellInst")
         InstrumentsIn.dataSource = self
         InstrumentsIn.delegate = self
+        //Number field is a number pad
+        PhoneIn.keyboardType = UIKeyboardType.numberPad
         
     }
     //Initializes the number of rows in the tableview as the number of objects in genre list
