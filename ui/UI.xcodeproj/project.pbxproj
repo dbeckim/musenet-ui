@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0FA031FA6635300EA7970 /* AccountCreation.swift */; };
 		13D0FA071FA6635F00EA7970 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0FA061FA6635F00EA7970 /* HttpRequest.swift */; };
+		527A20E61FB2840200E43630 /* ProfileDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A20E51FB2840200E43630 /* ProfileDisplay.swift */; };
 		F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE011F96952E0045DC8B /* AppDelegate.swift */; };
 		F081CE071F96952E0045DC8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F081CE051F96952E0045DC8B /* Main.storyboard */; };
 		F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F081CE081F96952E0045DC8B /* AccountCreation.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 		134A7FDA1FAA746500659A24 /* JSON.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JSON.playground; sourceTree = "<group>"; };
 		13D0FA031FA6635300EA7970 /* AccountCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreation.swift; sourceTree = "<group>"; };
 		13D0FA061FA6635F00EA7970 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		527A20E51FB2840200E43630 /* ProfileDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDisplay.swift; sourceTree = "<group>"; };
 		F081CDFE1F96952E0045DC8B /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CE011F96952E0045DC8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F081CE061F96952E0045DC8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		F081CE001F96952E0045DC8B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				527A20E51FB2840200E43630 /* ProfileDisplay.swift */,
 				F081CE011F96952E0045DC8B /* AppDelegate.swift */,
 				F081CE051F96952E0045DC8B /* Main.storyboard */,
 				13D0FA021FA6635300EA7970 /* controller */,
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				527A20E61FB2840200E43630 /* ProfileDisplay.swift in Sources */,
 				13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */,
 				13D0FA071FA6635F00EA7970 /* HttpRequest.swift in Sources */,
 				F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */,

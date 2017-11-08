@@ -34,13 +34,13 @@ class ProfileDisplay: UIViewController {
      */
     
     @IBOutlet weak var email: UILabel?
-    //@IBOutlet weak var password: UILabel?
-    @IBOutlet weak var name: UILabel?
-    @IBOutlet weak var location: UILabel?
-    @IBOutlet weak var bio: UILabel?
+    @IBOutlet weak var password: UILabel? //definitely not used
+    @IBOutlet weak var name: UILabel? //used
+    @IBOutlet weak var location: UILabel? //used
+    @IBOutlet weak var bio: UILabel? //used
     @IBOutlet weak var phone: UILabel?
-    @IBOutlet weak var genre: UILabel?
-    @IBOutlet weak var instruments:UILabel?
+    @IBOutlet weak var genre: UILabel? //used
+    @IBOutlet weak var instruments:UILabel? //used
     @IBOutlet weak var role: UILabel?
     
     var nameString = String()
@@ -65,9 +65,10 @@ class ProfileDisplay: UIViewController {
         "name" : "Devin",
         //***Hash this***
         "password" : "password",
-        "role": "programmer",
+        "role": "Bass, Back-end",
+        "genre": "Rap, Ska",
         "location": "Burlington, VT",
-        "bio": "test test"]
+        "bio": "Have you ever had a dream that you, um, you had, your, you- you could, you’ll do, you- you wants, you, you could do so, you- you’ll do, you could- you, you want, you want them to do you so much you could do anything?"]
         
         do {
             
