@@ -34,13 +34,13 @@ class ProfileDisplay: BaseVC {
         bio.text = self.passed["bio"] as? String
         
         if let genre_list = (self.passed["genres"] as? [String]) {
-            genres.text = genre_list.joined(separator: ",")
+            genres.text = genre_list.joined(separator: ", ")
         } else {
             genres.text = "None"
         }
         
         if let instr_list = (self.passed["instruments"] as? [String]) {
-            instruments.text = instr_list.joined(separator: ",")
+            instruments.text = instr_list.joined(separator: ", ")
         } else {
             instruments.text = "None"
         }
