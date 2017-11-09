@@ -2,94 +2,20 @@
 //  AccountCreation.swift
 //  AccountCreation
 //
-//  Created by Kevin S Delay on 10/17/17.
-//  Copyright © 2017 Kevin S Delay. All rights reserved.
-//Account Creation page, upon submit creates JSON object
-//Json object sent to the http requet method
+//  Created by MN Team on 10/17/17.
+//  Copyright © 2017 UVM CEMS All rights reserved.
+//
 
 import UIKit
 
-
-
-
-class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    //IBOutlets
+class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var EmailIn: UITextField!
-    @IBOutlet weak var PasswordIn: UITextField!
-    @IBOutlet weak var NameIn: UITextField!
-    @IBOutlet weak var PasswordConfirm: UITextField!
-    @IBOutlet weak var LocationIn: UITextField!
-    @IBOutlet weak var BioIn: UITextField!
-    @IBOutlet weak var PhoneIn: UITextField!
-    @IBOutlet weak var GenreIn: UITableView!
-    @IBOutlet weak var InstrumentsIn: UITableView!
-    @IBOutlet weak var RoleIn: UITextField!
-    //Action for submit
-    @IBAction func Submit(_ sender: Any) {
-        
-        //***********Need to send request testing if email is already in DB***************
-        
-        
-        //Creating Json object to pass to HTTP Request, need more validation for inputs
-        if PasswordIn.text != PasswordConfirm.text{
-            createAlert(title:"Attention", message: "Passwords do not match!")
-        }
-        //Just testing length to validate email ATM
-        else if (EmailIn.text!.characters.count < 10){
-            createAlert(title:"Attention", message:"Email invalid")
-        }
-        
-        else{
-            let jsonObject: [String: Any] = [
-                "email":EmailIn.text!,
-                "name" : NameIn.text!,
-                //***Hash this***
-                "password" : PasswordIn.text!,
-                "role": RoleIn.text!,
-                "location": LocationIn.text!,
-                "bio":BioIn.text!,
-                "phone":PhoneIn.text!
-               
-                
-                
-                ]
-            let jsonData:Data
-            do{
-                jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: JSONSerialization.WritingOptions()) as NSData as Data
-                    as Data;               let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue) as! String
-                print("json string = \(jsonString)")
-                post(jsonObj: jsonData, action: "create_profile"){(json) in
-                    if (type(of: json!) != Int.self){
-                        DispatchQueue.main.async {
-                            self.createAlert(title: "Success", message:"Profile creation successful.")
-                        }
-                        
-                    }else{
-                        DispatchQueue.main.async() {
-                            self.createAlert(title: "Error", message:"Unable to process your request.")
-                        }
-                    }
-                }
-                
-                
-            }
-            catch _ {
-                print("failed")
-            }
-            
-        }
-        
-        
-        
-        
-        
-    }
     //Genres to pick from
     var genreData: [String] = ["Blues", "Classical", "Country", "Electronic", "Emo", "Folk","Funk","Hardcore","Hip Hop", "Jazz", "Latin",
                                "Metal", "Pop", "Punk", "R&B", "Reggae", "Rock"]
     //Instruments to pick from
     var instrumentData: [String] = ["Guitar","Bass","Drums"]
+    
     //Array to keep track of which genres are "checked" by the user.
     var checkedCellsGenres = [Bool](repeating: false, count: 17)
     var checkedCellsInstruments = [Bool](repeating:false, count:3)
@@ -98,13 +24,62 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
     var selectedGenres = [String]()
     var selectedInstruments = [String]()
     
+    //IBOutlets
+    @IBOutlet weak var EmailIn: UITextField!
+    @IBOutlet weak var PasswordIn: UITextField!
+    @IBOutlet weak var PasswordConfirm: UITextField!
+    @IBOutlet weak var NameIn: UITextField!
+    @IBOutlet weak var RoleIn: UITextField!
+    @IBOutlet weak var PhoneIn: UITextField!
+    @IBOutlet weak var LocationIn: UITextField!
+    @IBOutlet weak var BioIn: UITextField!
+    @IBOutlet weak var InstrumentsIn: UITableView!
+    @IBOutlet weak var GenresIn: UITableView!
+    
+    @IBAction func submit(_ sender: Any) {
+        //Creating Json object to pass to HTTP Request, need more validation for inputs
+        
+        if PasswordIn.text != PasswordConfirm.text && PasswordIn.text != "" {
+            self.createAlert(title:"Attention", message: "Passwords do not match")
+        } else if !(EmailIn.text!.contains("@")) {
+            self.createAlert(title:"Attention", message: "Email invalid")
+        } else if (RoleIn.text! == "") {
+            self.createAlert(title: "Attention", message: "Role required")
+        } else if (LocationIn.text! == "") {
+            self.createAlert(title: "Attention", message: "Location required")
+        } else {
+            let json: [String: Any] = [
+                "email":EmailIn.text!,
+                "name" : NameIn.text!,
+                "password" : PasswordIn.text!,
+                "role": RoleIn.text!,
+                "location": LocationIn.text!,
+                "bio":BioIn.text!,
+                "phone":PhoneIn.text!
+            ]
+            
+            let resp = post(action: "create_profile", json: json)
+            if self.handleResponse(statusCode: resp.statusCode) {
+                self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
+            }
+        }
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        self.performSegue(withIdentifier: "CreationToLogin", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        PasswordIn.isSecureTextEntry = true
+        PasswordConfirm.isSecureTextEntry = true
+        
         // Do any additional setup after loading the view, typically from a nib.
         //Registers cell object as a part of tableview as "cell" for instruments and genres
-        self.GenreIn.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        GenreIn.dataSource = self
-        GenreIn.delegate = self
+        self.GenresIn.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        GenresIn.dataSource = self
+        GenresIn.delegate = self
         
         self.InstrumentsIn.register(UITableViewCell.self, forCellReuseIdentifier: "cellInst")
         InstrumentsIn.dataSource = self
@@ -113,18 +88,17 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
         PhoneIn.keyboardType = UIKeyboardType.numberPad
         
     }
+    
     //Initializes the number of rows in the tableview as the number of objects in genre list
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //Count to be returned
         var count:Int?
-        //For Genres
-        if tableView == self.GenreIn{
+        
+        if tableView == self.GenresIn{
             count =  self.genreData.count
-        }
-            //For Instruments
-        else if tableView == self.InstrumentsIn{
+        } else if tableView == self.InstrumentsIn{
             count = self.instrumentData.count
         }
+        
         return count!
     }
     
@@ -132,9 +106,9 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
     //Initializes values for the table view cells corresponding to items in the genre list
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell?
-        //For Genres
-        if tableView == self.GenreIn{
-            cell = self.GenreIn.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
+
+        if tableView == self.GenresIn{
+            cell = self.GenresIn.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
             
             cell!.textLabel!.text = self.genreData[indexPath.row]
             
@@ -144,10 +118,8 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
                 cell!.accessoryType = .checkmark
             }
             
-            
-        }
-            //For Instruments
-        else if tableView == self.InstrumentsIn{
+        
+        } else if tableView == self.InstrumentsIn{
             cell = self.InstrumentsIn.dequeueReusableCell(withIdentifier: "cellInst") as UITableViewCell!
             
             cell!.textLabel!.text = self.instrumentData[indexPath.row]
@@ -171,7 +143,7 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
      Check mark toggled for selecting/unselecting of cells
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == self.GenreIn{
+        if tableView == self.GenresIn{
             let genre = genreData[indexPath.row]
             
             if let cell = tableView.cellForRow(at: indexPath) {
@@ -182,8 +154,7 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
                 if cell.accessoryType == .checkmark {
                     cell.accessoryType = .none
                     checkedCellsGenres[indexPath.row] = false
-                    print("You unselected \(genre)!")
-                    
+
                     if let index = selectedGenres.index(of: genre){
                         selectedGenres.remove(at: index)
                     }
@@ -193,7 +164,6 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
                      append selected genre to array of selected genres
                      */
                 } else {
-                    print("You selected \(genre)!")
                     cell.accessoryType = .checkmark
                     checkedCellsGenres[indexPath.row] = true
                     selectedGenres.append(genre)
@@ -201,15 +171,7 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
             }
             
-            //Sets genreLabel element to selected genres array separated by comma
-            //genreLabel.text = selectedGenres.joined(separator: ", ")
-            
-            //Defaults to a message if no genres are selected
-            
-        }
-            //Checking of cells for the instruments table
-            
-        else {
+        } else {
             let instrument = instrumentData[indexPath.row]
             
             if let cell = tableView.cellForRow(at: indexPath) {
@@ -220,7 +182,6 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
                 if cell.accessoryType == .checkmark {
                     cell.accessoryType = .none
                     checkedCellsInstruments[indexPath.row] = false
-                    print("You unselected \(instrument)!")
                     
                     if let index = selectedInstruments.index(of: instrument){
                         selectedInstruments.remove(at: index)
@@ -231,26 +192,12 @@ class AccountCreation: UIViewController, UITableViewDelegate, UITableViewDataSou
                      append selected genre to array of selected genres
                      */
                 } else {
-                    print("You selected \(instrument)!")
                     cell.accessoryType = .checkmark
                     checkedCellsInstruments[indexPath.row] = true
                     selectedInstruments.append(instrument)
                     
                 }
             }
-            
-            //Sets genreLabel element to selected genres array separated by comma
-            //genreLabel.text = selectedGenres.joined(separator: ", ")
-            
-            //Defaults to a message if no genres are selected
-            
         }
     }
-    func createAlert (title:String, message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title:"ok", style:UIAlertActionStyle.default, handler: {(action)in alert.dismiss(animated:true,completion:nil)}))
-        self.present(alert, animated: true, completion:nil)
-    }
-    
-    
 }
