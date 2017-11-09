@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ProfileDisplay: BaseVC {
     
     @IBOutlet weak var name: UILabel!
@@ -19,6 +18,10 @@ class ProfileDisplay: BaseVC {
     @IBOutlet weak var genres: UILabel!
     @IBOutlet weak var instruments: UILabel!
     @IBOutlet weak var bio: UILabel!
+    
+    @IBAction func logout(_ sender: Any) {
+        self.performSegue(withIdentifier: "Logout", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

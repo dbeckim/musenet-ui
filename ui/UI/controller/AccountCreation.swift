@@ -58,10 +58,9 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
                 "phone":PhoneIn.text!
             ]
             
-            post(action: "create_profile", json: json) { resp in
-                if self.handleResponse(statusCode: resp.statusCode) {
-                    self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
-                }
+            let resp = post(action: "create_profile", json: json)
+            if self.handleResponse(statusCode: resp.statusCode) {
+                self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
             }
         }
     }
@@ -72,6 +71,9 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        PasswordIn.isSecureTextEntry = true
+        PasswordConfirm.isSecureTextEntry = true
         
         // Do any additional setup after loading the view, typically from a nib.
         //Registers cell object as a part of tableview as "cell" for instruments and genres

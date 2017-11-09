@@ -19,18 +19,14 @@ var url = String("http://bmckalla.w3.uvm.edu/api/api.py")!
  Uses Just library
 */
     
-public func get(action : String, searchBy : String, value : String, result: @escaping (Just.HTTPResult) -> Void) {
-    Just.get(url, params: ["action": action, searchBy: value]) { r in
-        result(r)
-    }
+public func get(action : String, searchBy : String, value : String) -> Just.HTTPResult {
+    return Just.get(url, params: ["action": action, searchBy: value])
 }
 
 /*
  HTTP POST request to server side API. jsonObj is the JSON Object being passed to the
  database, and action determines which database will be added to.
 */
-public func post(action: String, json: [String: Any], result: @escaping (Just.HTTPResult) -> Void) {
-    Just.post(url, params: ["action": action], json: json) { r in
-        result(r)
-    }
+public func post(action: String, json: [String: Any]) -> Just.HTTPResult {
+    return Just.post(url, params: ["action": action], json: json)
 }

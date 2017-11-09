@@ -10,6 +10,7 @@
 		0F8765D3AA62A62986BD3C20 /* Pods_UIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361794CC84D30173A38BC9B1 /* Pods_UIUITests.framework */; };
 		132075921FB3C128009712AF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132075911FB3C128009712AF /* BaseVC.swift */; };
 		132075931FB3C246009712AF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1320758F1FB3C0FE009712AF /* Login.swift */; };
+		133D69091FB41F44006C78F8 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D69081FB41F44006C78F8 /* CheckBox.swift */; };
 		13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0FA031FA6635300EA7970 /* AccountCreation.swift */; };
 		13D0FA071FA6635F00EA7970 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0FA061FA6635F00EA7970 /* HttpRequest.swift */; };
 		5172E3C8D1A15FC6469F647A /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEC12179C1023F17FD3322BF /* Pods_UITests.framework */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		1320758F1FB3C0FE009712AF /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = UI/controller/Login.swift; sourceTree = SOURCE_ROOT; };
 		132075911FB3C128009712AF /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		133D69081FB41F44006C78F8 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		134A7FDA1FAA746500659A24 /* JSON.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JSON.playground; sourceTree = "<group>"; };
 		13D0FA031FA6635300EA7970 /* AccountCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreation.swift; sourceTree = "<group>"; };
 		13D0FA061FA6635F00EA7970 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		133D69071FB41F30006C78F8 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				133D69081FB41F44006C78F8 /* CheckBox.swift */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
 		134A7FD91FAA743E00659A24 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +186,7 @@
 		F081CE001F96952E0045DC8B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				133D69071FB41F30006C78F8 /* classes */,
 				F081CE011F96952E0045DC8B /* AppDelegate.swift */,
 				F081CE051F96952E0045DC8B /* Main.storyboard */,
 				13D0FA021FA6635300EA7970 /* controller */,
@@ -501,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				133D69091FB41F44006C78F8 /* CheckBox.swift in Sources */,
 				132075931FB3C246009712AF /* Login.swift in Sources */,
 				527A20E61FB2840200E43630 /* ProfileDisplay.swift in Sources */,
 				13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */,
