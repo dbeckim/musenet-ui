@@ -48,6 +48,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
         } else if (LocationIn.text! == "") {
             self.createAlert(title: "Attention", message: "Location required")
         } else {
+            print (selectedInstruments)
             let json: [String: Any] = [
                 "email":EmailIn.text!,
                 "name" : NameIn.text!,
@@ -55,7 +56,10 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
                 "role": RoleIn.text!,
                 "location": LocationIn.text!,
                 "bio":BioIn.text!,
-                "phone":PhoneIn.text!
+                "phone":PhoneIn.text!,
+                "genres":selectedGenres,
+                "instruments":selectedInstruments
+                
             ]
             
             let resp = post(action: "create_profile", json: json)
