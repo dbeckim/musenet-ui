@@ -29,6 +29,7 @@ class Login: BaseVC {
         if self.handleResponse(statusCode: resp.statusCode) {
             
             if rememberMe.isChecked {
+                self.rememberMeCore(action: "delete")
                 self.rememberMeCore(action: "save")
             } else {
                 self.rememberMeCore(action: "delete")
