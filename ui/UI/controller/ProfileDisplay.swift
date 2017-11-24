@@ -23,15 +23,29 @@ class ProfileDisplay: BaseVC {
         self.performSegue(withIdentifier: "Logout", sender: self)
     }
     
+    @IBAction func profileToHub(_ sender: Any) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "The Hub") as! AdTableViewController
+        
+        myVC.profileEmail = email.text!
+       
+        navigationController?.pushViewController(myVC, animated: true)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         name.text = self.passed["name"] as? String
         email.text = self.passed["email"] as? String
         role.text = self.passed["role"] as? String
         phone.text = self.passed["phone"] as? String
         location.text = self.passed["location"] as? String
         bio.text = self.passed["bio"] as? String
+        
+        profileEmail = email.text!
+        
+        print("email: " + profileEmail)
         
         if let genre_list = (self.passed["genres"] as? [String]) {
             genres.text = genre_list.joined(separator: ", ")

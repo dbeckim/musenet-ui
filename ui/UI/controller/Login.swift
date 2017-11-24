@@ -34,7 +34,7 @@ class Login: BaseVC {
             } else {
                 self.rememberMeCore(action: "delete")
             }
-            
+            profileEmail = json["email"] as! String
             self.segueProfile(email: json["email"], segueName: "LoginToDisplay")
         }
     }
@@ -104,5 +104,6 @@ class Login: BaseVC {
         super.viewDidLoad()
         password.isSecureTextEntry = true
         self.rememberMeCore(action: "load")
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }

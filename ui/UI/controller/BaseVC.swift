@@ -10,16 +10,19 @@ import UIKit
 import CoreData
 
 class BaseVC: UIViewController {
-    
+    //email for this session
+    var profileEmail: String = ""
     var passed = [String: Any]()
     
     func segueProfile(email: Any!, segueName: String) {
         let email = email as! String
         
         let resp = get(action: "get_profile", searchBy: "email", value: email)
-        
+        print(self.handleResponse(statusCode: resp.statusCode))
         if self.handleResponse(statusCode: resp.statusCode) {
             self.passed = resp.json as! [String: Any]
+            print(self.passed)
+            
             self.performSegue(withIdentifier: segueName, sender: self)
         }
     }
@@ -38,6 +41,13 @@ class BaseVC: UIViewController {
             dest.passed = self.passed
             break
             
+        
+        case "hubToProfile":
+            let dest = segue.destination as! ProfileDisplay
+            dest.passed = self.passed
+            break
+        
+        
         default:
             break
         }
