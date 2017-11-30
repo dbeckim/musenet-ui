@@ -26,6 +26,17 @@ class BaseVC: UIViewController {
             self.performSegue(withIdentifier: segueName, sender: self)
         }
     }
+    func segueGroup(group_id: Any!, segueName:String){
+        let group_id = group_id as! String
+        let resp = get(action: "get_group", searchBy: "group_id", value: group_id)
+        print(self.handleResponse(statusCode: resp.statusCode))
+        if self.handleResponse(statusCode: resp.statusCode){
+            self.passed = resp.json as! [String: Any]
+            print(self.passed)
+        
+        self.performSegue(withIdentifier: segueName, sender: self)
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

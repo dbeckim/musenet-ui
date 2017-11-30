@@ -15,6 +15,9 @@ class Login: BaseVC {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var rememberMe: CheckBox!
     
+    @IBAction func TestGroup(_ sender: Any) {
+        self.segueGroup(group_id: 1, segueName: "loginToGroupTest")
+    }
     @IBAction func register(_ sender: Any) {
         self.performSegue(withIdentifier: "LoginToCreation", sender: self)
     }

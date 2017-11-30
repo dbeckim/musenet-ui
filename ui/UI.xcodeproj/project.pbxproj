@@ -26,6 +26,7 @@
 		F081CE0F1F96952F0045DC8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F081CE0D1F96952F0045DC8B /* LaunchScreen.storyboard */; };
 		F081CE1A1F96952F0045DC8B /* AccountCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE191F96952F0045DC8B /* AccountCreationTests.swift */; };
 		F081CE251F96952F0045DC8B /* AccountCreationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE241F96952F0045DC8B /* AccountCreationUITests.swift */; };
+		F0BE32101FCF12D7006491CA /* groupDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE320F1FCF12D7006491CA /* groupDisplay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		F081CE201F96952F0045DC8B /* UIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CE241F96952F0045DC8B /* AccountCreationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountCreationUITests.swift; path = UnitTests/AccountCreationUITests.swift; sourceTree = "<group>"; };
 		F081CE261F96952F0045DC8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0BE320F1FCF12D7006491CA /* groupDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		13D0FA021FA6635300EA7970 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				F0BE320F1FCF12D7006491CA /* groupDisplay.swift */,
 				132075911FB3C128009712AF /* BaseVC.swift */,
 				B292FD821FC5FC110045419A /* AdTableViewController.swift */,
 				B292FD841FC5FC380045419A /* AdTableViewCell.swift */,
@@ -529,6 +532,7 @@
 				B292FD851FC5FC380045419A /* AdTableViewCell.swift in Sources */,
 				13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */,
 				13D0FA071FA6635F00EA7970 /* HttpRequest.swift in Sources */,
+				F0BE32101FCF12D7006491CA /* groupDisplay.swift in Sources */,
 				F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */,
 				132075921FB3C128009712AF /* BaseVC.swift in Sources */,
 				F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */,
