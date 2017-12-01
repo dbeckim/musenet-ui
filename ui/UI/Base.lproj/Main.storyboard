@@ -421,16 +421,16 @@ Password</string>
         <scene sceneID="KBg-9U-DQM">
             <objects>
                 <tableViewController storyboardIdentifier="The Hub" title="The Hub" id="6XW-Ik-gng" customClass="AdTableViewController" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="30" sectionFooterHeight="30" id="pRb-1u-97Y">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="30" sectionFooterHeight="30" id="pRb-1u-97Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdTableViewCell" rowHeight="90" id="RDi-NU-wzT" customClass="AdTableViewCell" customModule="UI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="30" width="375" height="90"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdTableViewCell" rowHeight="120" id="RDi-NU-wzT" customClass="AdTableViewCell" customModule="UI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="30" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RDi-NU-wzT" id="UA7-zj-KgM">
-                                    <frame key="frameInset" width="375" height="89"/>
+                                    <frame key="frameInset" width="375" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vy-i1-P5j">
@@ -447,8 +447,22 @@ Password</string>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5g-oi-FVL">
+                                            <frame key="frameInset" minX="37" minY="57" width="158" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rng-EG-DQV">
+                                            <frame key="frameInset" minX="37" minY="88" width="298" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfH-KB-0ek">
-                                            <frame key="frameInset" minX="247" minY="30" width="128" height="21"/>
+                                            <frame key="frameInset" minX="247" minY="49" width="128" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -457,6 +471,8 @@ Password</string>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="adDescription" destination="Rng-EG-DQV" id="OT2-hX-7fJ"/>
+                                    <outlet property="contactEmail" destination="F5g-oi-FVL" id="iUP-cH-dDZ"/>
                                     <outlet property="location" destination="PfH-KB-0ek" id="nX5-ti-JaU"/>
                                     <outlet property="lookingFor" destination="4Vy-i1-P5j" id="C2b-eA-dED"/>
                                     <outlet property="role" destination="YGT-Jf-l3N" id="ZDD-gC-9Uc"/>
@@ -482,12 +498,12 @@ Password</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7P-mu-d7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1874" y="43"/>
+            <point key="canvasLocation" x="1872.8" y="42.728635682158924"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gja-aV-WIP"/>
         <segue reference="9Vn-92-MmS"/>
+        <segue reference="6KQ-ya-reK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44178953923794562" green="0.6494189564646764" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
