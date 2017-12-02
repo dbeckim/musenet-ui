@@ -13,6 +13,8 @@ class AdTableViewCell: UITableViewCell {
     @IBOutlet weak var role: UILabel!
     @IBOutlet weak var lookingFor: UILabel!
     @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var contactEmail: UILabel!
+    @IBOutlet weak var adDescription: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
