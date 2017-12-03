@@ -38,18 +38,18 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource 
     private func loadAds() {
         
         //For now, load all ads without filtering by role, looking for, etc.
-        let adResp = get(action: "get_ads", searchBy: "", value: "")
+        let adResp = get(action: "get_ads")
         let adsIn = adResp.json! as! [[String: Any]]
         for ad in adsIn {
             //Distinguish between a group ad and a profile ad by whether "email" or "group_id" is filled in for the ad
             if let email = ad["email"] as? String {
-                let profileResp = get(action: "get_profile", searchBy: "email", value: email)
+                let profileResp = get(action: "get_profile", searchBy: ["email": email])
                 //load in the profile associated with the ad
                 let profile = profileResp.json! as! [String: Any]
                 //Add a new ad object to the table
                 ads.append(Ad(role: profile["role"] as! String, lookingFor: ad["looking_for"]! as! String, location: profile["location"] as! String, contactEmail: email, adDescription: ad["description"] as! String))
             }else{
-                let groupResp = get(action: "get_group", searchBy: "group_id", value: "\(ad["group_id"]!)")
+                let groupResp = get(action: "get_group", searchBy: ["group_id": "\(ad["group_id"]!)"])
                 //load in the group associated with the ad
                 let group = groupResp.json! as! [String: Any]
                 //Add a new ad object to the table
