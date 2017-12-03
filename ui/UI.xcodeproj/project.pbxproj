@@ -12,7 +12,9 @@
 		132075931FB3C246009712AF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1320758F1FB3C0FE009712AF /* Login.swift */; };
 		133D69091FB41F44006C78F8 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D69081FB41F44006C78F8 /* CheckBox.swift */; };
 		13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0FA031FA6635300EA7970 /* AccountCreation.swift */; };
-		13D0FA071FA6635F00EA7970 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D0FA061FA6635F00EA7970 /* HttpRequest.swift */; };
+		13D9E0041FD48BC50002CF78 /* Base64Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D9E0011FD48BC50002CF78 /* Base64Image.swift */; };
+		13D9E0051FD48BC50002CF78 /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D9E0021FD48BC50002CF78 /* Custom.swift */; };
+		13D9E0061FD48BC50002CF78 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D9E0031FD48BC50002CF78 /* HttpRequest.swift */; };
 		5172E3C8D1A15FC6469F647A /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEC12179C1023F17FD3322BF /* Pods_UITests.framework */; };
 		527A20E61FB2840200E43630 /* ProfileDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A20E51FB2840200E43630 /* ProfileDisplay.swift */; };
 		53BEEDCDEBD880C2DF0D8D62 /* Pods_UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6863F0BACF598C040B7439 /* Pods_UI.framework */; };
@@ -51,7 +53,9 @@
 		133D69081FB41F44006C78F8 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		134A7FDA1FAA746500659A24 /* JSON.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JSON.playground; sourceTree = "<group>"; };
 		13D0FA031FA6635300EA7970 /* AccountCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreation.swift; sourceTree = "<group>"; };
-		13D0FA061FA6635F00EA7970 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		13D9E0011FD48BC50002CF78 /* Base64Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base64Image.swift; sourceTree = "<group>"; };
+		13D9E0021FD48BC50002CF78 /* Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
+		13D9E0031FD48BC50002CF78 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		361794CC84D30173A38BC9B1 /* Pods_UIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3838304A367F0609168D470D /* Pods-UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITests/Pods-UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B09094AED5487707495CD38 /* Pods-UI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.release.xcconfig"; path = "Pods/Target Support Files/Pods-UI/Pods-UI.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 		7E208773AF3699E3DA05E185 /* Pods-UIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UIUITests/Pods-UIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B292FD821FC5FC110045419A /* AdTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTableViewController.swift; sourceTree = "<group>"; };
 		B292FD841FC5FC380045419A /* AdTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
-		B292FD861FC5FC610045419A /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ad.swift; path = ../controller/Ad.swift; sourceTree = "<group>"; };
+		B292FD861FC5FC610045419A /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		BB674E8199136377169004DC /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		EEC12179C1023F17FD3322BF /* Pods_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CDFE1F96952E0045DC8B /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				B292FD861FC5FC610045419A /* Ad.swift */,
+				B292FD841FC5FC380045419A /* AdTableViewCell.swift */,
 				133D69081FB41F44006C78F8 /* CheckBox.swift */,
 			);
 			path = classes;
@@ -130,7 +135,6 @@
 			children = (
 				132075911FB3C128009712AF /* BaseVC.swift */,
 				B292FD821FC5FC110045419A /* AdTableViewController.swift */,
-				B292FD841FC5FC380045419A /* AdTableViewCell.swift */,
 				527A20E51FB2840200E43630 /* ProfileDisplay.swift */,
 				13D0FA031FA6635300EA7970 /* AccountCreation.swift */,
 				1320758F1FB3C0FE009712AF /* Login.swift */,
@@ -138,12 +142,14 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
-		13D0FA051FA6635F00EA7970 /* util */ = {
+		13D9E0001FD48BC50002CF78 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				13D0FA061FA6635F00EA7970 /* HttpRequest.swift */,
+				13D9E0011FD48BC50002CF78 /* Base64Image.swift */,
+				13D9E0021FD48BC50002CF78 /* Custom.swift */,
+				13D9E0031FD48BC50002CF78 /* HttpRequest.swift */,
 			);
-			path = util;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		3E82530419495905CDD4CFDF /* Pods */ = {
@@ -172,6 +178,7 @@
 		F081CDF51F96952E0045DC8B = {
 			isa = PBXGroup;
 			children = (
+				13D9E0001FD48BC50002CF78 /* Util */,
 				F081CE001F96952E0045DC8B /* UI */,
 				F081CE181F96952F0045DC8B /* Tests */,
 				F081CE231F96952F0045DC8B /* UnitTests */,
@@ -201,7 +208,6 @@
 				13D0FA021FA6635300EA7970 /* controller */,
 				F081CE0B1F96952F0045DC8B /* Assets.xcassets */,
 				F081CE0D1F96952F0045DC8B /* LaunchScreen.storyboard */,
-				13D0FA051FA6635F00EA7970 /* util */,
 				F081CE101F96952F0045DC8B /* Info.plist */,
 				F081CE081F96952E0045DC8B /* AccountCreation.xcdatamodeld */,
 			);
@@ -523,12 +529,14 @@
 			files = (
 				B292FD831FC5FC110045419A /* AdTableViewController.swift in Sources */,
 				B292FD871FC5FC610045419A /* Ad.swift in Sources */,
+				13D9E0051FD48BC50002CF78 /* Custom.swift in Sources */,
 				133D69091FB41F44006C78F8 /* CheckBox.swift in Sources */,
 				132075931FB3C246009712AF /* Login.swift in Sources */,
+				13D9E0061FD48BC50002CF78 /* HttpRequest.swift in Sources */,
 				527A20E61FB2840200E43630 /* ProfileDisplay.swift in Sources */,
+				13D9E0041FD48BC50002CF78 /* Base64Image.swift in Sources */,
 				B292FD851FC5FC380045419A /* AdTableViewCell.swift in Sources */,
 				13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */,
-				13D0FA071FA6635F00EA7970 /* HttpRequest.swift in Sources */,
 				F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */,
 				132075921FB3C128009712AF /* BaseVC.swift in Sources */,
 				F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */,
