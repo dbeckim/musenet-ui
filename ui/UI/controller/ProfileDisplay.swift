@@ -19,6 +19,18 @@ class ProfileDisplay: BaseVC {
     @IBOutlet weak var instruments: UILabel!
     @IBOutlet weak var bio: UILabel!
     
+    @IBOutlet weak var editName: UITextField!
+    @IBOutlet weak var editEmail: UITextField!
+    @IBOutlet weak var editLocation: UITextField!
+    @IBOutlet weak var editPhone: UITextField!
+    @IBOutlet weak var editRole: UITextField!
+    @IBOutlet weak var editGenre: UITextField!
+    @IBOutlet weak var editInstruments: UITextField!
+    @IBOutlet weak var editBio: UITextField!
+    
+    @IBOutlet weak var profilePic: UIImageView!
+    
+    
     @IBAction func logout(_ sender: Any) {
         self.performSegue(withIdentifier: "Logout", sender: self)
     }
@@ -36,14 +48,17 @@ class ProfileDisplay: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        
         name.text = self.passed["name"] as? String
         email.text = self.passed["email"] as? String
         role.text = self.passed["role"] as? String
         phone.text = self.passed["phone"] as? String
         location.text = self.passed["location"] as? String
-        bio.text = self.passed["bio"] as? String
-        
+        bio.text = self.passed["bio"] as? String        
         profileEmail = email.text!
+        
+        
         
         print("email: " + profileEmail)
         
@@ -58,8 +73,89 @@ class ProfileDisplay: BaseVC {
         } else {
             instruments.text = "None"
         }
+        editName.isHidden = true
+        editEmail.isHidden = true
+        editLocation.isHidden = true
+        editPhone.isHidden = true
+        editRole.isHidden = true
+        editBio.isHidden = true
+        
+        self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2;
+        profilePic.clipsToBounds = true;
+        
+        name.textAlignment = NSTextAlignment.center;
+    }
+    
+    @IBAction func editProfile(_ sender: Any) {
+        editName.text = name.text
+        editEmail.text = email.text
+        editLocation.text = location.text
+        editPhone.text = phone.text
+        editRole.text = role.text
+        editBio.text = bio.text
+        
+        name.textAlignment = NSTextAlignment.left;
+        name.font = name.font.withSize(17);
+        
+        name.text = "Name: "
+        email.text = "Email: "
+        location.text = "Location: "
+        phone.text = "Phone #: "
+        role.text = "Role: "
+        bio.text = "Bio: "
+        
+        editName.isHidden = false
+        editEmail.isHidden = false
+        editLocation.isHidden = false
+        editPhone.isHidden = false
+        editRole.isHidden = false
+        editBio.isHidden = false
+        
+        let editJson: [String: Any] = [
+            "email":email.text!,
+            "name":name.text!,
+            "role":role.text!,
+            "location":location.text!,
+            "bio":bio.text!,
+            "phone":phone.text!,
+            "genres":genres.text!,
+            "instruments":instruments.text!
+        ]
         
     }
+    @IBAction func updateProfile(_ sender: Any) {
+        editName.isHidden = true
+        editEmail.isHidden = true
+        editLocation.isHidden = true
+        editPhone.isHidden = true
+        editRole.isHidden = true
+        editBio.isHidden = true
+        
+        name.textAlignment = NSTextAlignment.center;
+        name.font = name.font.withSize(25);
+
+        
+        name.text = editName.text
+        email.text = editEmail.text
+        location.text = editLocation.text
+        phone.text = editPhone.text
+        role.text = editRole.text
+        bio.text = editBio.text
+        
+        let json: [String: Any] = [
+            "email":email.text!,
+            "name" : name.text!,
+            "role": role.text!,
+            "location": location.text!,
+            "bio":bio.text!,
+            "phone":phone.text!,
+        ]
+        let response = post(action: "edit_profile", json: json,with: ["email": email.text!])
+        print(response.statusCode!)
+        
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
