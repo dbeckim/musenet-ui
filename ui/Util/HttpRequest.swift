@@ -39,12 +39,12 @@ public func get(action : String, searchBy dict: [String:Any]? = nil, completion:
     - postTo:
 */
 public func post(action: String, json: [String: Any], with params: [String: Any]? = nil) -> Just.HTTPResult {
-    return Just.post(url, params: ["action": action] + params!, json: json)
+    return Just.post(url, params: ["action": action] + params, json: json)
 }
 
 // Completion is used for closures so that you can load something asynchronously and let the user do stuff
 public func post(action : String, json: [String: Any], with params: [String:Any]? = nil, completion: @escaping (Just.HTTPResult) -> Void) {
-    Just.post(url, params: ["action": action] + params!, json: json) { r in
+    Just.post(url, params: ["action": action] + params, json: json) { r in
         completion(r)
     }
 }
