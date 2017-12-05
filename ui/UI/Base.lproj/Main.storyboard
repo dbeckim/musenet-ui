@@ -116,7 +116,7 @@
                         <outlet property="password" destination="Ddn-Br-pQ0" id="Mp3-xX-yKA"/>
                         <outlet property="rememberMe" destination="1fE-f8-4dA" id="2Bg-1a-GFy"/>
                         <segue destination="7QA-eg-GXe" kind="show" identifier="LoginToCreation" id="TBd-qt-JjN"/>
-                        <segue destination="HkO-SY-yrr" kind="show" identifier="LoginToDisplay" id="jsF-fK-iv0"/>
+                        <segue destination="6XW-Ik-gng" kind="show" identifier="LoginToHub" id="Kat-ol-VVs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="js5-EJ-PUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -292,13 +292,13 @@
                         <outlet property="phone" destination="dkG-kS-dWa" id="RN4-CO-oLX"/>
                         <outlet property="profilePic" destination="dQh-UG-wX6" id="hOT-hT-HaK"/>
                         <outlet property="role" destination="OFP-fJ-Zbt" id="kX9-6m-c0w"/>
-                        <segue destination="6XW-Ik-gng" kind="show" id="KCd-IW-NfW"/>
-                        <segue destination="jfY-X6-eMZ" kind="show" identifier="Logout" id="gja-aV-WIP"/>
+                        <segue destination="6XW-Ik-gng" kind="show" identifier="ProfileToHub" id="KCd-IW-NfW"/>
+                        <segue destination="jfY-X6-eMZ" kind="show" identifier="DisplayToLogin" id="fMc-fa-wJq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJQ-Bl-Qee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="726"/>
+            <point key="canvasLocation" x="372" y="947"/>
         </scene>
         <!--Account Creation-->
         <scene sceneID="JvZ-ia-xfC">
@@ -556,7 +556,7 @@ Password</string>
                     <navigationItem key="navigationItem" title="The Hub" id="twG-KN-Las">
                         <barButtonItem key="leftBarButtonItem" tag="1" title="Profile" id="tVg-gq-Uiw">
                             <connections>
-                                <action selector="hubToProfile:" destination="6XW-Ik-gng" id="fw8-hO-FTo"/>
+                                <action selector="hubToProfile:" destination="6XW-Ik-gng" id="mAn-tZ-5LW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RnG-rP-lDf">

@@ -34,8 +34,7 @@ class Login: BaseVC {
             } else {
                 self.rememberMeCore(action: "delete")
             }
-            profileEmail = json["email"] as! String
-            self.segueProfile(email: json["email"], segueName: "LoginToDisplay")
+            self.segueProfile(email: json["email"], segueName: "LoginToHub")
         }
     }
     

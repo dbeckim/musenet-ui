@@ -18,7 +18,7 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource 
         navigationController?.pushViewController(myVC, animated: true)
     }
     @IBAction func hubToProfile(_ sender: AnyObject) {
-        segueProfile(email: self.profileEmail, segueName: "hubToProfile")
+        segueProfile(email: self.passed["email"], segueName: "HubToProfile")
     }
     
     var ads = [Ad]()

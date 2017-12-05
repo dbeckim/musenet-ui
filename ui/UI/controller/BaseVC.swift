@@ -11,7 +11,6 @@ import CoreData
 
 class BaseVC: UIViewController {
     //email for this session
-    var profileEmail: String = ""
     var passed = [String: Any]()
     
     func segueProfile(email: Any!, segueName: String) {
@@ -42,14 +41,24 @@ class BaseVC: UIViewController {
             break
             
         
-        case "hubToProfile":
+        case "HubToProfile":
             let dest = segue.destination as! ProfileDisplay
             dest.passed = self.passed
             break
         
-        
+        case "ProfileToHub":
+            let dest = segue.destination as! AdTableViewController
+            dest.passed = self.passed
+            break
+            
+        case "LoginToHub":
+            let dest = segue.destination as! AdTableViewController
+            dest.passed = self.passed
+            break
+            
         default:
             break
+    
         }
     }
     
