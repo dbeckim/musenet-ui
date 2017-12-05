@@ -11,6 +11,12 @@ import UIKit
 class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource {
     
    
+    @IBAction func CreateAd(_ sender: AnyObject) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "CreateAd") as! AdCreation
+        
+        myVC.profileEmail = self.profileEmail
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     @IBAction func hubToProfile(_ sender: AnyObject) {
         segueProfile(email: self.profileEmail, segueName: "hubToProfile")
     }

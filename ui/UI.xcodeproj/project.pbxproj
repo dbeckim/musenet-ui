@@ -21,6 +21,7 @@
 		B292FD831FC5FC110045419A /* AdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD821FC5FC110045419A /* AdTableViewController.swift */; };
 		B292FD851FC5FC380045419A /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD841FC5FC380045419A /* AdTableViewCell.swift */; };
 		B292FD871FC5FC610045419A /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD861FC5FC610045419A /* Ad.swift */; };
+		B292FD8B1FD623C80045419A /* AdCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD8A1FD623C80045419A /* AdCreation.swift */; };
 		F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE011F96952E0045DC8B /* AppDelegate.swift */; };
 		F081CE071F96952E0045DC8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F081CE051F96952E0045DC8B /* Main.storyboard */; };
 		F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F081CE081F96952E0045DC8B /* AccountCreation.xcdatamodeld */; };
@@ -67,6 +68,7 @@
 		B292FD821FC5FC110045419A /* AdTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTableViewController.swift; sourceTree = "<group>"; };
 		B292FD841FC5FC380045419A /* AdTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
 		B292FD861FC5FC610045419A /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		B292FD8A1FD623C80045419A /* AdCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCreation.swift; sourceTree = "<group>"; };
 		BB674E8199136377169004DC /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		EEC12179C1023F17FD3322BF /* Pods_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CDFE1F96952E0045DC8B /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 				527A20E51FB2840200E43630 /* ProfileDisplay.swift */,
 				13D0FA031FA6635300EA7970 /* AccountCreation.swift */,
 				1320758F1FB3C0FE009712AF /* Login.swift */,
+				B292FD8A1FD623C80045419A /* AdCreation.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */,
 				132075921FB3C128009712AF /* BaseVC.swift in Sources */,
 				F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */,
+				B292FD8B1FD623C80045419A /* AdCreation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
