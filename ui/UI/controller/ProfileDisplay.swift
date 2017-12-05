@@ -32,15 +32,11 @@ class ProfileDisplay: BaseVC {
     
     
     @IBAction func logout(_ sender: Any) {
-        self.performSegue(withIdentifier: "Logout", sender: self)
+        self.performSegue(withIdentifier: "DisplayToLogin", sender: self)
     }
     
     @IBAction func profileToHub(_ sender: Any) {
-        let myVC = storyboard?.instantiateViewController(withIdentifier: "The Hub") as! AdTableViewController
-        
-        myVC.profileEmail = email.text!
-       
-        navigationController?.pushViewController(myVC, animated: true)
+        self.segueProfile(email: self.passed["email"], segueName: "ProfileToHub")
     }
     
     
@@ -55,12 +51,8 @@ class ProfileDisplay: BaseVC {
         role.text = self.passed["role"] as? String
         phone.text = self.passed["phone"] as? String
         location.text = self.passed["location"] as? String
-        bio.text = self.passed["bio"] as? String        
-        profileEmail = email.text!
+        bio.text = self.passed["bio"] as? String
         
-        
-        
-        print("email: " + profileEmail)
         
         if let genre_list = (self.passed["genres"] as? [String]) {
             genres.text = genre_list.joined(separator: ", ")
@@ -111,16 +103,16 @@ class ProfileDisplay: BaseVC {
         editRole.isHidden = false
         editBio.isHidden = false
         
-        let editJson: [String: Any] = [
-            "email":email.text!,
-            "name":name.text!,
-            "role":role.text!,
-            "location":location.text!,
-            "bio":bio.text!,
-            "phone":phone.text!,
-            "genres":genres.text!,
-            "instruments":instruments.text!
-        ]
+//        let editJson: [String: Any] = [
+//            "email":email.text!,
+//            "name":name.text!,
+//            "role":role.text!,
+//            "location":location.text!,
+//            "bio":bio.text!,
+//            "phone":phone.text!,
+//            "genres":genres.text!,
+//            "instruments":instruments.text!
+//        ]
         
     }
     @IBAction func updateProfile(_ sender: Any) {

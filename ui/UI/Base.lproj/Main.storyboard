@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fc6-hc-vhn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1036" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fc6-hc-vhn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -119,7 +119,7 @@
                         <outlet property="password" destination="Ddn-Br-pQ0" id="Mp3-xX-yKA"/>
                         <outlet property="rememberMe" destination="1fE-f8-4dA" id="2Bg-1a-GFy"/>
                         <segue destination="7QA-eg-GXe" kind="show" identifier="LoginToCreation" id="TBd-qt-JjN"/>
-                        <segue destination="HkO-SY-yrr" kind="show" identifier="LoginToDisplay" id="jsF-fK-iv0"/>
+                        <segue destination="6XW-Ik-gng" kind="show" identifier="LoginToHub" id="Kat-ol-VVs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="js5-EJ-PUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -295,13 +295,13 @@
                         <outlet property="phone" destination="dkG-kS-dWa" id="RN4-CO-oLX"/>
                         <outlet property="profilePic" destination="dQh-UG-wX6" id="hOT-hT-HaK"/>
                         <outlet property="role" destination="OFP-fJ-Zbt" id="kX9-6m-c0w"/>
-                        <segue destination="6XW-Ik-gng" kind="show" id="KCd-IW-NfW"/>
-                        <segue destination="jfY-X6-eMZ" kind="show" identifier="Logout" id="gja-aV-WIP"/>
+                        <segue destination="6XW-Ik-gng" kind="show" identifier="ProfileToHub" id="KCd-IW-NfW"/>
+                        <segue destination="jfY-X6-eMZ" kind="show" identifier="DisplayToLogin" id="fMc-fa-wJq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJQ-Bl-Qee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="726"/>
+            <point key="canvasLocation" x="372" y="947"/>
         </scene>
         <!--Account Creation-->
         <scene sceneID="JvZ-ia-xfC">
@@ -559,13 +559,13 @@ Password</string>
                     <navigationItem key="navigationItem" title="The Hub" id="twG-KN-Las">
                         <barButtonItem key="leftBarButtonItem" tag="1" title="Profile" id="tVg-gq-Uiw">
                             <connections>
-                                <action selector="hubToProfile:" destination="6XW-Ik-gng" id="fw8-hO-FTo"/>
+                                <action selector="hubToProfile:" destination="6XW-Ik-gng" id="mAn-tZ-5LW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RnG-rP-lDf"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="HkO-SY-yrr" kind="show" identifier="hubToProfile" id="9Vn-92-MmS"/>
+                        <segue destination="HkO-SY-yrr" kind="show" identifier="HubToProfile" id="9Vn-92-MmS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7P-mu-d7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -577,9 +577,9 @@ Password</string>
         <image name="cat" width="295" height="214"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KCd-IW-NfW"/>
+        <segue reference="fMc-fa-wJq"/>
         <segue reference="9Vn-92-MmS"/>
-        <segue reference="gja-aV-WIP"/>
+        <segue reference="KCd-IW-NfW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44178953923794562" green="0.6494189564646764" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
