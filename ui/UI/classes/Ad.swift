@@ -14,18 +14,20 @@ import UIKit
  **/
 
 class Ad: NSObject {
+    var name : String = "personal or group name"
     var role : String = "role name"
     var lookingFor : String = "what they are looking for"
     var location : String = "their location"
     var contactEmail : String = "contact email"
     var adDescription : String = "description"
     
-    init(role: String, lookingFor: String, location: String, contactEmail: String, adDescription: String){
+    init(role: String, lookingFor: String, location: String, contactEmail: String, adDescription: String, name: String){
         self.role = role
         self.lookingFor = lookingFor
         self.location = location
         self.contactEmail = contactEmail
         self.adDescription = adDescription
+        self.name = name
     }
     
 }
