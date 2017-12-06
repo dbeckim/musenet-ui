@@ -18,19 +18,30 @@ class AdCreation: BaseVC {
     @IBOutlet weak var DescriptionIn: UITextField!
     
     @IBAction func SubmitAd(_ sender: AnyObject) {
-        let json: [String: Any] = [
-            "description":DescriptionIn.text!,
-            "looking_for" : LookingForIn.text!,
-            "genre" : GenreIn.text!,
-            "instrument": InstrumentIn.text!,
-        ]
-        let resp = post(action: "create_profile_ad", json: json, with: ["email": email])
-        print(resp)
+        
+        if LookingForIn.text! == "" {
+            self.createAlert(title: "Attention", message: "Please specifiy what you are looking for.")
+        }else if DescriptionIn.text! == "" {
+            self.createAlert(title: "Attention", message: "Please fill in a description.")
+        }else{
+            
+            
+            let json: [String: Any] = [
+                "description":DescriptionIn.text!,
+                "looking_for" : LookingForIn.text!,
+                "genre" : GenreIn.text!,
+                "instrument": InstrumentIn.text!,
+                ]
+            let resp = post(action: "create_profile_ad", json: json, with: ["email": email])
+            if self.handleResponse(statusCode: resp.statusCode!){
+                self.performSegue(withIdentifier: "AdCreated", sender: self)
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.email = self.profileEmail
+        self.email = self.passed["email"] as! String
         // Do any additional setup after loading the view.
     }
 

@@ -22,6 +22,10 @@
 		B292FD851FC5FC380045419A /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD841FC5FC380045419A /* AdTableViewCell.swift */; };
 		B292FD871FC5FC610045419A /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD861FC5FC610045419A /* Ad.swift */; };
 		B292FD8B1FD623C80045419A /* AdCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD8A1FD623C80045419A /* AdCreation.swift */; };
+		B292FD8D1FD760290045419A /* AdTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD8C1FD760290045419A /* AdTypeButton.swift */; };
+		B292FD8F1FD7616D0045419A /* AdTypeSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD8E1FD7616D0045419A /* AdTypeSelect.swift */; };
+		B292FD911FD76A5A0045419A /* GroupAdCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD901FD76A5A0045419A /* GroupAdCreation.swift */; };
+		B292FD931FD84C840045419A /* AdShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD921FD84C840045419A /* AdShow.swift */; };
 		F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE011F96952E0045DC8B /* AppDelegate.swift */; };
 		F081CE071F96952E0045DC8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F081CE051F96952E0045DC8B /* Main.storyboard */; };
 		F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F081CE081F96952E0045DC8B /* AccountCreation.xcdatamodeld */; };
@@ -69,6 +73,10 @@
 		B292FD841FC5FC380045419A /* AdTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
 		B292FD861FC5FC610045419A /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		B292FD8A1FD623C80045419A /* AdCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCreation.swift; sourceTree = "<group>"; };
+		B292FD8C1FD760290045419A /* AdTypeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTypeButton.swift; sourceTree = "<group>"; };
+		B292FD8E1FD7616D0045419A /* AdTypeSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTypeSelect.swift; sourceTree = "<group>"; };
+		B292FD901FD76A5A0045419A /* GroupAdCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupAdCreation.swift; sourceTree = "<group>"; };
+		B292FD921FD84C840045419A /* AdShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdShow.swift; sourceTree = "<group>"; };
 		BB674E8199136377169004DC /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		EEC12179C1023F17FD3322BF /* Pods_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CDFE1F96952E0045DC8B /* UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +128,7 @@
 				B292FD861FC5FC610045419A /* Ad.swift */,
 				B292FD841FC5FC380045419A /* AdTableViewCell.swift */,
 				133D69081FB41F44006C78F8 /* CheckBox.swift */,
+				B292FD8C1FD760290045419A /* AdTypeButton.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -141,6 +150,9 @@
 				13D0FA031FA6635300EA7970 /* AccountCreation.swift */,
 				1320758F1FB3C0FE009712AF /* Login.swift */,
 				B292FD8A1FD623C80045419A /* AdCreation.swift */,
+				B292FD8E1FD7616D0045419A /* AdTypeSelect.swift */,
+				B292FD901FD76A5A0045419A /* GroupAdCreation.swift */,
+				B292FD921FD84C840045419A /* AdShow.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -532,9 +544,13 @@
 			files = (
 				B292FD831FC5FC110045419A /* AdTableViewController.swift in Sources */,
 				B292FD871FC5FC610045419A /* Ad.swift in Sources */,
+				B292FD8D1FD760290045419A /* AdTypeButton.swift in Sources */,
 				13D9E0051FD48BC50002CF78 /* Custom.swift in Sources */,
+				B292FD8F1FD7616D0045419A /* AdTypeSelect.swift in Sources */,
 				133D69091FB41F44006C78F8 /* CheckBox.swift in Sources */,
 				132075931FB3C246009712AF /* Login.swift in Sources */,
+				B292FD931FD84C840045419A /* AdShow.swift in Sources */,
+				B292FD911FD76A5A0045419A /* GroupAdCreation.swift in Sources */,
 				13D9E0061FD48BC50002CF78 /* HttpRequest.swift in Sources */,
 				527A20E61FB2840200E43630 /* ProfileDisplay.swift in Sources */,
 				13D9E0041FD48BC50002CF78 /* Base64Image.swift in Sources */,

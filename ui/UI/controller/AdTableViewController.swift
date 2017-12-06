@@ -8,22 +8,33 @@
 
 import UIKit
 
-class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource {
+class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
     
-   
-    @IBAction func CreateAd(_ sender: AnyObject) {
-        let myVC = storyboard?.instantiateViewController(withIdentifier: "CreateAd") as! AdCreation
+    let refreshControl = UIRefreshControl()
+
+    @IBAction func AdTypeSelection(_ sender: AnyObject) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "AdTypeSelection") as! AdTypeSelect
         
-        myVC.profileEmail = self.profileEmail
+        myVC.passed["email"] = self.passed["email"]
         navigationController?.pushViewController(myVC, animated: true)
     }
+   
+    @IBOutlet var tableView: UITableView!
+    
+    
     @IBAction func hubToProfile(_ sender: AnyObject) {
         segueProfile(email: self.passed["email"], segueName: "HubToProfile")
     }
     
     var ads = [Ad]()
     
+    
+    
+    
     override func viewDidLoad() {
+
+        self.refreshControl.addTarget(self, action: #selector(AdTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewDidLoad()
         
@@ -33,6 +44,17 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource 
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
+        
+        // Simply adding an object to the data source for this example
+        loadAds()
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     
@@ -53,13 +75,13 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource 
                 //load in the profile associated with the ad
                 let profile = profileResp.json! as! [String: Any]
                 //Add a new ad object to the table
-                ads.append(Ad(role: profile["role"] as! String, lookingFor: ad["looking_for"]! as! String, location: profile["location"] as! String, contactEmail: email, adDescription: ad["description"] as! String))
+                ads.append(Ad(role: profile["role"] as! String, lookingFor: ad["looking_for"]! as! String, location: profile["location"] as! String, contactEmail: email, adDescription: ad["description"] as! String, name: profile["name"] as! String))
             }else{
                 let groupResp = get(action: "get_group", searchBy: ["group_id": "\(ad["group_id"]!)"])
                 //load in the group associated with the ad
                 let group = groupResp.json! as! [String: Any]
                 //Add a new ad object to the table
-                ads.append(Ad(role: "Band", lookingFor: ad["looking_for"]! as! String, location: group["location"] as! String, contactEmail: group["email"] as! String, adDescription: ad["description"] as! String))
+                ads.append(Ad(role: "Band", lookingFor: ad["looking_for"]! as! String, location: group["location"] as! String, contactEmail: group["email"] as! String, adDescription: ad["description"] as! String, name: group["name"] as! String))
             }
             
         }
@@ -84,8 +106,8 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource 
         
         let ad = ads[indexPath.row]
         
-        cell.role.text = "Role: " + ad.role
-        cell.lookingFor.text = "Looking for: " + ad.lookingFor
+        cell.role.text = ad.role + " looking for a " + ad.lookingFor
+        cell.role.font = UIFont.boldSystemFont(ofSize: 16.0)
         cell.location.text = ad.location
         cell.contactEmail.text = ad.contactEmail
         cell.adDescription.text = ad.adDescription
@@ -94,6 +116,15 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource 
         cell.location.textAlignment = .right
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let ad = ads[indexPath.row]
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "ShowAd") as! AdShow
+        
+        myVC.ad = ad 
+        navigationController?.pushViewController(myVC, animated: true)
+        
     }
     
     
