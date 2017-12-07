@@ -65,6 +65,13 @@ class ProfileDisplay: BaseVC {
         } else {
             instruments.text = "None"
         }
+        //let resp = get(action:"get_profile_picture", searchBy:["email":self.passed["email"]!])
+        //print(resp)
+        //let picture = resp.json as! [[String:Any]]
+        //Ωprint(picture[0]["base64"] as! String)
+
+       // self.profilePic.image  = DecodeImage(fromBase64: picture[0]["base64"] as! String)
+        
         editName.isHidden = true
         editEmail.isHidden = true
         editLocation.isHidden = true

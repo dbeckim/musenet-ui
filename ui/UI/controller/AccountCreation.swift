@@ -7,8 +7,12 @@
 //
 
 import UIKit
-
-class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
+import CoreLocation
+class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    let locationManager = CLLocationManager()
+    
+    
     
     //Genres to pick from
     var genreData: [String] = ["Blues", "Classical", "Country", "Electronic", "Emo", "Folk","Funk","Hardcore","Hip Hop", "Jazz", "Latin",
@@ -23,29 +27,76 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
     //Array to store selected genre(s) both to print to user and to be stored in database for future
     var selectedGenres = [String]()
     var selectedInstruments = [String]()
+    var chosenImage = UIImage()
+    var roleIn = String()
+    
+    let roles = ["Member","Producer","Hype-man"]
+    
+    
+    
+    
     
     //IBOutlets
     @IBOutlet weak var EmailIn: UITextField!
     @IBOutlet weak var PasswordIn: UITextField!
     @IBOutlet weak var PasswordConfirm: UITextField!
     @IBOutlet weak var NameIn: UITextField!
-    @IBOutlet weak var RoleIn: UITextField!
+    
+    @IBOutlet weak var rolesIn: UIPickerView!
     @IBOutlet weak var PhoneIn: UITextField!
     @IBOutlet weak var LocationIn: UITextField!
     @IBOutlet weak var BioIn: UITextField!
     @IBOutlet weak var InstrumentsIn: UITableView!
     @IBOutlet weak var GenresIn: UITableView!
+    let imagePicker = UIImagePickerController()
+    
+    //Roles picker view Functions
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component:Int) -> String? {
+        return roles[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return roles.count
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.roleIn = roles[row]
+    }
+    //Grabs submitted image saves it into chosen image defined above
+    func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]){
+        self.chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        print (chosenImage)
+        dismiss(animated: true, completion: nil)
+    }
+    //handles a cancelled action i guess
+    func imagePickerControllerDidCancel(_ imagePicker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    //Add Picture action
+    @IBAction func addPicture(_ sender: Any) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        self.present(imagePicker,animated:true,completion: nil)
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
     
     @IBAction func submit(_ sender: Any) {
-        //Creating Json object to pass to HTTP Request, need more validation for inputs
         
+        
+        //Creating Json object to pass to HTTP Request, need more validation for inputs
         if PasswordIn.text != PasswordConfirm.text && PasswordIn.text != "" {
             self.createAlert(title:"Attention", message: "Passwords do not match")
         } else if !(EmailIn.text!.contains("@")) {
             self.createAlert(title:"Attention", message: "Email invalid")
-        } else if (RoleIn.text! == "") {
-            self.createAlert(title: "Attention", message: "Role required")
-        } else if (LocationIn.text! == "") {
+        } //else if (RoleIn.text! == "") {
+            //self.createAlert(title: "Attention", message: "Role required")
+         else if (LocationIn.text! == "") {
             self.createAlert(title: "Attention", message: "Location required")
         } else {
             print (selectedInstruments)
@@ -53,7 +104,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
                 "email":EmailIn.text!,
                 "name" : NameIn.text!,
                 "password" : PasswordIn.text!,
-                "role": RoleIn.text!,
+                "role": self.roleIn,
                 "location": LocationIn.text!,
                 "bio":BioIn.text!,
                 "phone":PhoneIn.text!,
@@ -63,10 +114,20 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
             ]
             
             let resp = post(action: "create_profile", json: json)
+            //testing of the picture submission stuff not working ATM
             if self.handleResponse(statusCode: resp.statusCode) {
-                self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
+                //let picJson: [String: Any]=[
+                 //   "base64":EncodeImage(image: self.chosenImage)]
+                //print(picJson["base64"])
+                //let resp = post(action:"add_profile_picture",json:picJson, with: ["email": json["email"]!,"main":true])
+                //print (resp)
+                
+              self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
             }
         }
+        
+        
+        
     }
     
     @IBAction func back(_ sender: Any) {
@@ -75,6 +136,19 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Location Stuff
+        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .notDetermined{
+            self.locationManager.requestWhenInUseAuthorization()
+        }
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        PhoneIn.delegate = self
+        //Image Picker delegate Setting to self didnt work but this does?
+        
+        imagePicker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
         PasswordIn.isSecureTextEntry = true
         PasswordConfirm.isSecureTextEntry = true
@@ -110,7 +184,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
     //Initializes values for the table view cells corresponding to items in the genre list
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell?
-
+        
         if tableView == self.GenresIn{
             cell = self.GenresIn.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
             
@@ -122,7 +196,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
                 cell!.accessoryType = .checkmark
             }
             
-        
+            
         } else if tableView == self.InstrumentsIn{
             cell = self.InstrumentsIn.dequeueReusableCell(withIdentifier: "cellInst") as UITableViewCell!
             
@@ -158,7 +232,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
                 if cell.accessoryType == .checkmark {
                     cell.accessoryType = .none
                     checkedCellsGenres[indexPath.row] = false
-
+                    
                     if let index = selectedGenres.index(of: genre){
                         selectedGenres.remove(at: index)
                     }
