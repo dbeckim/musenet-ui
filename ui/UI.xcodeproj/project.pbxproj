@@ -33,6 +33,7 @@
 		F081CE0F1F96952F0045DC8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F081CE0D1F96952F0045DC8B /* LaunchScreen.storyboard */; };
 		F081CE1A1F96952F0045DC8B /* AccountCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE191F96952F0045DC8B /* AccountCreationTests.swift */; };
 		F081CE251F96952F0045DC8B /* AccountCreationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CE241F96952F0045DC8B /* AccountCreationUITests.swift */; };
+		F0BD632C1FD8BB1200735F47 /* groupDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD632B1FD8BB1200735F47 /* groupDisplay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		F081CE201F96952F0045DC8B /* UIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F081CE241F96952F0045DC8B /* AccountCreationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountCreationUITests.swift; path = UnitTests/AccountCreationUITests.swift; sourceTree = "<group>"; };
 		F081CE261F96952F0045DC8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0BD632B1FD8BB1200735F47 /* groupDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				13D0FA031FA6635300EA7970 /* AccountCreation.swift */,
 				1320758F1FB3C0FE009712AF /* Login.swift */,
 				B292FD8A1FD623C80045419A /* AdCreation.swift */,
+				F0BD632B1FD8BB1200735F47 /* groupDisplay.swift */,
 				B292FD8E1FD7616D0045419A /* AdTypeSelect.swift */,
 				B292FD901FD76A5A0045419A /* GroupAdCreation.swift */,
 				B292FD921FD84C840045419A /* AdShow.swift */,
@@ -547,6 +550,7 @@
 				B292FD8D1FD760290045419A /* AdTypeButton.swift in Sources */,
 				13D9E0051FD48BC50002CF78 /* Custom.swift in Sources */,
 				B292FD8F1FD7616D0045419A /* AdTypeSelect.swift in Sources */,
+				F0BD632C1FD8BB1200735F47 /* groupDisplay.swift in Sources */,
 				133D69091FB41F44006C78F8 /* CheckBox.swift in Sources */,
 				132075931FB3C246009712AF /* Login.swift in Sources */,
 				B292FD931FD84C840045419A /* AdShow.swift in Sources */,

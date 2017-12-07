@@ -30,7 +30,12 @@ public func EncodeImage(image: UIImage) -> String {
     - fromBase64: Base64 string to decode to UIImage
  - Returns: a UIImage
 */
-public func DecodeImage(fromBase64: String) -> UIImage {
-    let dataDecoded: Data = Data(base64Encoded: fromBase64, options: .ignoreUnknownCharacters)!
-    return UIImage(data: dataDecoded)!
+public func DecodeImage(fromBase64: String) -> UIImage? {
+
+    if let dataDecoded: Data = Data(base64Encoded: fromBase64) {
+        print(fromBase64)
+        return UIImage(data: dataDecoded)
+    } else {
+        return nil
+    }
 }
