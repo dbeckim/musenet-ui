@@ -34,7 +34,7 @@ class AdCreation: BaseVC {
                 ]
             let resp = post(action: "create_profile_ad", json: json, with: ["email": email])
             if self.handleResponse(statusCode: resp.statusCode!){
-                self.performSegue(withIdentifier: "AdCreated", sender: self)
+                self.segueProfile(email: self.passed["email"], segueName: "AdCreated")
             }
         }
     }

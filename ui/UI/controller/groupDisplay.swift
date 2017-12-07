@@ -30,7 +30,6 @@ class GroupDisplay: BaseVC {
         displayBio.text = self.passed["bio"] as? String
         displayLocation.text = self.passed["location"]as? String
         displayEmail.text = self.passed["email"] as? String
-        print (self.passed)
         //name.text = self.passed["name"] as? String
         
     }

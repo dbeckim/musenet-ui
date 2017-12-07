@@ -66,7 +66,6 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
     //Grabs submitted image saves it into chosen image defined above
     func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]){
         self.chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        print (chosenImage)
         dismiss(animated: true, completion: nil)
     }
     //handles a cancelled action i guess
@@ -81,9 +80,8 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
         self.present(imagePicker,animated:true,completion: nil)
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
     }
     
     @IBAction func submit(_ sender: Any) {
@@ -99,7 +97,6 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
          else if (LocationIn.text! == "") {
             self.createAlert(title: "Attention", message: "Location required")
         } else {
-            print (selectedInstruments)
             let json: [String: Any] = [
                 "email":EmailIn.text!,
                 "name" : NameIn.text!,
@@ -148,7 +145,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
         PhoneIn.delegate = self
         //Image Picker delegate Setting to self didnt work but this does?
         
-        imagePicker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
         PasswordIn.isSecureTextEntry = true
         PasswordConfirm.isSecureTextEntry = true

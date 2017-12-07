@@ -56,7 +56,6 @@ class GroupAdCreation: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         
         groupIn.inputView = pickerView
         
-        
         loadGroups()
 
         // Do any additional setup after loading the view.
@@ -67,18 +66,20 @@ class GroupAdCreation: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, UIT
         // Dispose of any resources that can be recreated.
     }
     
-    func loadGroups(){
+    func loadGroups() {
         let email = self.passed["email"]
         let resp = get(action: "get_group", searchBy: ["profile_email": email!])
-        print(resp)
-        if let groupsIn = resp.json! as? [[String : Any]]{
-        
-            for group in groupsIn{
-                groups.append(Group(groupName: group["name"] as! String, groupId: group["group_id"] as! String))
+        if (self.handleResponse(statusCode: resp.statusCode)) {
+            if let groupsIn = resp.json! as? [[String : Any]] {
+                for group in groupsIn {
+                    groups.append(Group(groupName: group["name"] as! String, groupId: group["group_id"] as! String))
+                }
+            } else {
+                let groupsIn = resp.json! as! [String : Any]
+                groups.append(Group(groupName: groupsIn["name"] as! String, groupId: "\(groupsIn["group_id"]!)" ))
             }
-        }else{
-            let groupsIn = resp.json! as! [String : Any]
-            groups.append(Group(groupName: groupsIn["name"] as! String, groupId: "\(groupsIn["group_id"]!)" ))
+        } else {
+            self.segueProfile(email: self.passed["email"], segueName: "GroupAdCreated")
         }
         
     }

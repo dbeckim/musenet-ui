@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F8765D3AA62A62986BD3C20 /* Pods_UIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361794CC84D30173A38BC9B1 /* Pods_UIUITests.framework */; };
+		131E4C551FD8FEE20021AE24 /* GroupCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131E4C541FD8FEE20021AE24 /* GroupCreation.swift */; };
 		132075921FB3C128009712AF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132075911FB3C128009712AF /* BaseVC.swift */; };
 		132075931FB3C246009712AF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1320758F1FB3C0FE009712AF /* Login.swift */; };
 		133D69091FB41F44006C78F8 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D69081FB41F44006C78F8 /* CheckBox.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		131E4C541FD8FEE20021AE24 /* GroupCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCreation.swift; sourceTree = "<group>"; };
 		1320758F1FB3C0FE009712AF /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = UI/controller/Login.swift; sourceTree = SOURCE_ROOT; };
 		132075911FB3C128009712AF /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		133D69081FB41F44006C78F8 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				13D0FA031FA6635300EA7970 /* AccountCreation.swift */,
 				1320758F1FB3C0FE009712AF /* Login.swift */,
 				B292FD8A1FD623C80045419A /* AdCreation.swift */,
+				131E4C541FD8FEE20021AE24 /* GroupCreation.swift */,
 				F0BD632B1FD8BB1200735F47 /* groupDisplay.swift */,
 				B292FD8E1FD7616D0045419A /* AdTypeSelect.swift */,
 				B292FD901FD76A5A0045419A /* GroupAdCreation.swift */,
@@ -557,6 +560,7 @@
 				B292FD911FD76A5A0045419A /* GroupAdCreation.swift in Sources */,
 				13D9E0061FD48BC50002CF78 /* HttpRequest.swift in Sources */,
 				527A20E61FB2840200E43630 /* ProfileDisplay.swift in Sources */,
+				131E4C551FD8FEE20021AE24 /* GroupCreation.swift in Sources */,
 				13D9E0041FD48BC50002CF78 /* Base64Image.swift in Sources */,
 				B292FD851FC5FC380045419A /* AdTableViewCell.swift in Sources */,
 				13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */,

@@ -17,10 +17,8 @@ class BaseVC: UIViewController {
         let email = email as! String
         
         let resp = get(action: "get_profile", searchBy: ["email": email])
-        print(self.handleResponse(statusCode: resp.statusCode))
         if self.handleResponse(statusCode: resp.statusCode) {
             self.passed = resp.json as! [String: Any]
-            print(self.passed)
             
             self.performSegue(withIdentifier: segueName, sender: self)
         }
@@ -39,7 +37,6 @@ class BaseVC: UIViewController {
             let dest = segue.destination as! ProfileDisplay
             dest.passed = self.passed
             break
-            
         
         case "HubToProfile":
             let dest = segue.destination as! ProfileDisplay
@@ -55,13 +52,23 @@ class BaseVC: UIViewController {
             let dest = segue.destination as! AdTableViewController
             dest.passed = self.passed
             break
+        
+        case "GroupAdCreated":
+            let dest = segue.destination as! AdTableViewController
+            dest.passed = self.passed
+            break
+            
+        case "AdCreated":
+            let dest = segue.destination as! AdTableViewController
+            dest.passed = self.passed
+            break
             
         default:
             break
     
         }
     }
-    
+
     func handleResponse(statusCode: Int!) -> Bool {
         switch (statusCode) {
             
@@ -73,11 +80,11 @@ class BaseVC: UIViewController {
             break
             
         case 404:
-            self.createAlert(title: "Invalid", message: "Profile does not exist")
+            self.createAlert(title: "Invalid", message: "Does not exist")
             break
             
         case 409:
-            self.createAlert(title: "Exists",  message: "Profile already exists")
+            self.createAlert(title: "Exists",  message: "Already exists")
             break
             
         case 500:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1114" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fc6-hc-vhn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1036" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fc6-hc-vhn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -221,13 +221,6 @@
                                     <action selector="updateProfile:" destination="HkO-SY-yrr" eventType="touchUpInside" id="rBq-jo-gzJ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-m5-b01">
-                                <rect key="frame" x="161" y="286" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pCn-zT-eRs">
                                 <rect key="frame" x="161" y="324" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -282,7 +275,6 @@
                     <connections>
                         <outlet property="bio" destination="YuS-ZK-Txa" id="eMM-dX-TBi"/>
                         <outlet property="editBio" destination="nPV-AK-nk0" id="gmJ-aV-rhn"/>
-                        <outlet property="editEmail" destination="1Kh-m5-b01" id="2db-5L-YnI"/>
                         <outlet property="editLocation" destination="pCn-zT-eRs" id="ZJQ-J8-x0m"/>
                         <outlet property="editName" destination="4gs-P3-6dw" id="VJn-Y2-6mi"/>
                         <outlet property="editPhone" destination="Y97-5J-eoO" id="mce-N7-2xo"/>
@@ -295,6 +287,7 @@
                         <outlet property="phone" destination="dkG-kS-dWa" id="RN4-CO-oLX"/>
                         <outlet property="profilePic" destination="dQh-UG-wX6" id="hOT-hT-HaK"/>
                         <outlet property="role" destination="OFP-fJ-Zbt" id="kX9-6m-c0w"/>
+                        <outlet property="updateButton" destination="0GL-12-Xsr" id="QEa-dp-GLS"/>
                         <segue destination="6XW-Ik-gng" kind="show" identifier="ProfileToHub" id="KCd-IW-NfW"/>
                         <segue destination="jfY-X6-eMZ" kind="show" identifier="DisplayToLogin" id="fMc-fa-wJq"/>
                     </connections>
@@ -511,7 +504,7 @@ Password</string>
                                 <rect key="frame" x="0.0" y="30" width="375" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RDi-NU-wzT" id="UA7-zj-KgM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGT-Jf-l3N">
@@ -1000,9 +993,9 @@ Password</string>
         <image name="cat" width="295" height="214"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SVq-Ea-8Il"/>
+        <segue reference="KCd-IW-NfW"/>
         <segue reference="dq0-wT-UJi"/>
-        <segue reference="Kat-ol-VVs"/>
+        <segue reference="fMc-fa-wJq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44178953923794562" green="0.6494189564646764" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
