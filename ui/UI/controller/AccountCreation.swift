@@ -8,15 +8,12 @@
 
 import UIKit
 import CoreLocation
-class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let locationManager = CLLocationManager()
     
-    
-    
     //Genres to pick from
-    var genreData: [String] = ["Blues", "Classical", "Country", "Electronic", "Emo", "Folk","Funk","Hardcore","Hip Hop", "Jazz", "Latin",
-                               "Metal", "Pop", "Punk", "R&B", "Reggae", "Rock"]
+    var genreData: [String] = ["Blues", "Classical", "Country", "Electronic", "Emo", "Folk","Funk","Hardcore","Hip Hop", "Jazz", "Latin", "Metal", "Pop", "Punk", "R&B", "Reggae", "Rock"]
     //Instruments to pick from
     var instrumentData: [String] = ["Guitar","Bass","Drums"]
     
@@ -31,10 +28,6 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
     var roleIn = String()
     
     let roles = ["Member","Producer","Hype-man"]
-    
-    
-    
-    
     
     //IBOutlets
     @IBOutlet weak var EmailIn: UITextField!
@@ -63,6 +56,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.roleIn = roles[row]
     }
+    
     //Grabs submitted image saves it into chosen image defined above
     func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]){
         self.chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -80,12 +74,12 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
         self.present(imagePicker,animated:true,completion: nil)
     }
     
+    //Grabs longitutde and lattitude coordinate not doing anything with it ATM
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
     }
     
     @IBAction func submit(_ sender: Any) {
-        
         
         //Creating Json object to pass to HTTP Request, need more validation for inputs
         if PasswordIn.text != PasswordConfirm.text && PasswordIn.text != "" {
@@ -113,8 +107,8 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
             let resp = post(action: "create_profile", json: json)
             //testing of the picture submission stuff not working ATM
             if self.handleResponse(statusCode: resp.statusCode) {
-                //let picJson: [String: Any]=[
-                 //   "base64":EncodeImage(image: self.chosenImage)]
+              //  let picJson: [String: Any]=[
+                //    "base64":EncodeImage(image: self.chosenImage)]
                 //print(picJson["base64"])
                 //let resp = post(action:"add_profile_picture",json:picJson, with: ["email": json["email"]!,"main":true])
                 //print (resp)
