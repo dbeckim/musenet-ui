@@ -332,6 +332,7 @@
 				TargetAttributes = {
 					F081CDFD1F96952E0045DC8B = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6BLGDH539V;
 						ProvisioningStyle = Automatic;
 					};
 					F081CE141F96952F0045DC8B = {
@@ -722,6 +723,7 @@
 			baseConfigurationReference = 646868ADBDD7D67B5545674F /* Pods-UI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6BLGDH539V;
 				INFOPLIST_FILE = UI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -736,6 +738,7 @@
 			baseConfigurationReference = 4B09094AED5487707495CD38 /* Pods-UI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6BLGDH539V;
 				INFOPLIST_FILE = UI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
