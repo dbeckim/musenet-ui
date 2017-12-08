@@ -13,7 +13,7 @@ struct Group{
     var groupId = ""
 }
 
-class GroupAdCreation: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class GroupAdCreation: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var groupIn: UITextField!
     

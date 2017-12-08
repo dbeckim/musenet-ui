@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class BaseVC: UIViewController {
+class BaseVC: UIViewController, UITextFieldDelegate {
     //email for this session
     var passed = [String: Any]()
     
@@ -67,6 +67,10 @@ class BaseVC: UIViewController {
             break
     
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     func handleResponse(statusCode: Int!) -> Bool {
