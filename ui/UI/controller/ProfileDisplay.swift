@@ -34,7 +34,6 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     @IBOutlet weak var editProPic: UIButton!
     @IBOutlet weak var profilePic: UIImageView!
     
-    @IBOutlet weak var updateButton: UIButton!
     
     @IBAction func logout(_ sender: Any) {
         self.performSegue(withIdentifier: "DisplayToLogin", sender: self)
@@ -61,9 +60,7 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         update.layer.cornerRadius = 5
         update.layer.borderWidth = 1
         update.layer.borderColor=UIColor.lightGray.cgColor
-        updateButton.isHidden = true
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         
         name.text = self.passed["name"] as? String
