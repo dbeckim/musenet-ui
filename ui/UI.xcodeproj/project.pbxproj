@@ -16,6 +16,7 @@
 		13D9E0051FD48BC50002CF78 /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D9E0021FD48BC50002CF78 /* Custom.swift */; };
 		13D9E0061FD48BC50002CF78 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D9E0031FD48BC50002CF78 /* HttpRequest.swift */; };
 		5172E3C8D1A15FC6469F647A /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEC12179C1023F17FD3322BF /* Pods_UITests.framework */; };
+		5222CC331FD73EB600186E9B /* GroupCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222CC321FD73EB600186E9B /* GroupCreation.swift */; };
 		527A20E61FB2840200E43630 /* ProfileDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A20E51FB2840200E43630 /* ProfileDisplay.swift */; };
 		53BEEDCDEBD880C2DF0D8D62 /* Pods_UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6863F0BACF598C040B7439 /* Pods_UI.framework */; };
 		B292FD831FC5FC110045419A /* AdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD821FC5FC110045419A /* AdTableViewController.swift */; };
@@ -60,6 +61,7 @@
 		3838304A367F0609168D470D /* Pods-UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITests/Pods-UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B09094AED5487707495CD38 /* Pods-UI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.release.xcconfig"; path = "Pods/Target Support Files/Pods-UI/Pods-UI.release.xcconfig"; sourceTree = "<group>"; };
 		4E8369528227AD6A4F11CAA7 /* Pods-UIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UIUITests/Pods-UIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5222CC321FD73EB600186E9B /* GroupCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCreation.swift; sourceTree = "<group>"; };
 		527A20E51FB2840200E43630 /* ProfileDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileDisplay.swift; path = UI/controller/ProfileDisplay.swift; sourceTree = SOURCE_ROOT; };
 		646868ADBDD7D67B5545674F /* Pods-UI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UI/Pods-UI.debug.xcconfig"; sourceTree = "<group>"; };
 		7D6863F0BACF598C040B7439 /* Pods_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 		13D0FA021FA6635300EA7970 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				5222CC321FD73EB600186E9B /* GroupCreation.swift */,
 				132075911FB3C128009712AF /* BaseVC.swift */,
 				B292FD821FC5FC110045419A /* AdTableViewController.swift */,
 				527A20E51FB2840200E43630 /* ProfileDisplay.swift */,
@@ -537,6 +540,7 @@
 				13D9E0041FD48BC50002CF78 /* Base64Image.swift in Sources */,
 				B292FD851FC5FC380045419A /* AdTableViewCell.swift in Sources */,
 				13D0FA041FA6635300EA7970 /* AccountCreation.swift in Sources */,
+				5222CC331FD73EB600186E9B /* GroupCreation.swift in Sources */,
 				F081CE0A1F96952E0045DC8B /* AccountCreation.xcdatamodeld in Sources */,
 				132075921FB3C128009712AF /* BaseVC.swift in Sources */,
 				F081CE021F96952E0045DC8B /* AppDelegate.swift in Sources */,
