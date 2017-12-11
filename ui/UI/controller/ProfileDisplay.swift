@@ -21,7 +21,6 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     @IBOutlet weak var bio: UILabel!
     
     @IBOutlet weak var editName: UITextField!
-    @IBOutlet weak var editEmail: UITextField!
     @IBOutlet weak var editLocation: UITextField!
     @IBOutlet weak var editPhone: UITextField!
     @IBOutlet weak var editRole: UITextField!
@@ -35,6 +34,7 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     @IBOutlet weak var editProPic: UIButton!
     @IBOutlet weak var profilePic: UIImageView!
     
+    @IBOutlet weak var updateButton: UIButton!
     
     @IBAction func logout(_ sender: Any) {
         self.performSegue(withIdentifier: "DisplayToLogin", sender: self)
@@ -45,10 +45,10 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+<<<<<<< HEAD
         name.textAlignment = .center
         imagePicker.delegate = self
         
@@ -62,6 +62,10 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         update.layer.cornerRadius = 5
         update.layer.borderWidth = 1
         update.layer.borderColor=UIColor.lightGray.cgColor
+=======
+        updateButton.isHidden = true
+        
+>>>>>>> b1fd4d12c1eae9f252555931a1f0192733bce0bb
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         
@@ -84,8 +88,14 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         } else {
             instruments.text = "None"
         }
+        //let resp = get(action:"get_profile_picture", searchBy:["email":self.passed["email"]!])
+        //print(resp)
+        //let picture = resp.json as! [[String:Any]]
+        //Ωprint(picture[0]["base64"] as! String)
+
+       // self.profilePic.image  = DecodeImage(fromBase64: picture[0]["base64"] as! String)
+        
         editName.isHidden = true
-        editEmail.isHidden = true
         editLocation.isHidden = true
         editPhone.isHidden = true
         editRole.isHidden = true
@@ -120,13 +130,16 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     
     
     @IBAction func editProfile(_ sender: Any) {
+<<<<<<< HEAD
         update.isHidden = false
         editProPic.isHidden = false
         
         name.textAlignment = .left
+=======
+        updateButton.isHidden = false
+>>>>>>> b1fd4d12c1eae9f252555931a1f0192733bce0bb
         
         editName.text = name.text
-        editEmail.text = email.text
         editLocation.text = location.text
         editPhone.text = phone.text
         editRole.text = role.text
@@ -136,35 +149,21 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         name.font = name.font.withSize(17);
         
         name.text = "Name: "
-        email.text = "Email: "
         location.text = "Location: "
         phone.text = "Phone #: "
         role.text = "Role: "
         bio.text = "Bio: "
         
         editName.isHidden = false
-        editEmail.isHidden = false
         editLocation.isHidden = false
         editPhone.isHidden = false
         editRole.isHidden = false
         editBio.isHidden = false
-        
-//        let editJson: [String: Any] = [
-//            "email":email.text!,
-//            "name":name.text!,
-//            "role":role.text!,
-//            "location":location.text!,
-//            "bio":bio.text!,
-//            "phone":phone.text!,
-//            "genres":genres.text!,
-//            "instruments":instruments.text!
-//        ]
-        
     }
+    
     @IBAction func updateProfile(_ sender: Any) {
         
         editName.isHidden = true
-        editEmail.isHidden = true
         editLocation.isHidden = true
         editPhone.isHidden = true
         editRole.isHidden = true
@@ -173,6 +172,7 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         
         name.textAlignment = .center;
         name.font = name.font.withSize(25);
+<<<<<<< HEAD
 
         name.text = editName.text
         email.text = editEmail.text
@@ -180,10 +180,13 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         phone.text = editPhone.text
         role.text = editRole.text
         bio.text = editBio.text
+=======
+>>>>>>> b1fd4d12c1eae9f252555931a1f0192733bce0bb
         
         let b64Pic = EncodeImage(image: profilePic.image!)
         
         let json: [String: Any] = [
+<<<<<<< HEAD
             "name" : name.text!,
             "role": role.text!,
             "location": location.text!,
@@ -196,8 +199,24 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         ]
         
         //EDIT PROFILE POST
+=======
+            "name" : editName.text!,
+            "role": editRole.text!,
+            "location": editLocation.text!,
+            "bio": editBio.text!,
+            "phone": editPhone.text!,
+        ]
+        
+>>>>>>> b1fd4d12c1eae9f252555931a1f0192733bce0bb
         let response = post(action: "edit_profile", json: json,with: ["email": email.text!])
-        print(response.statusCode!)
+        
+        if (self.handleResponse(statusCode: response.statusCode)) {
+            name.text = editName.text
+            location.text = editLocation.text
+            phone.text = editPhone.text
+            role.text = editRole.text
+            bio.text = editBio.text
+        }
         
         //ADD PRO PIC POST
         let picResp = post(action: "add_profile_picture", json: picJson,with:["email": email.text!])

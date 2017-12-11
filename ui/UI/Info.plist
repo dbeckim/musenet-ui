@@ -29,8 +29,17 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+<<<<<<< HEAD
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
+=======
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Use of location to match properly</string>
+	<key>NSLocationManagerDelegate</key>
+	<string>Use location to match properly</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your image to upload to account</string>
+>>>>>>> b1fd4d12c1eae9f252555931a1f0192733bce0bb
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
