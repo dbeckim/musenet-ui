@@ -31,10 +31,6 @@ class AdTypeSelect: BaseVC {
         
         profileAdButton.isSelected = true
         groupAdButton.isSelected = false
-        
-        
-
-
     }
     
     override func viewDidLoad() {

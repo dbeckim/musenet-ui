@@ -20,7 +20,6 @@ class ProfileDisplay: BaseVC {
     @IBOutlet weak var bio: UILabel!
     
     @IBOutlet weak var editName: UITextField!
-    @IBOutlet weak var editEmail: UITextField!
     @IBOutlet weak var editLocation: UITextField!
     @IBOutlet weak var editPhone: UITextField!
     @IBOutlet weak var editRole: UITextField!
@@ -30,6 +29,7 @@ class ProfileDisplay: BaseVC {
     
     @IBOutlet weak var profilePic: UIImageView!
     
+    @IBOutlet weak var updateButton: UIButton!
     
     @IBAction func logout(_ sender: Any) {
         self.performSegue(withIdentifier: "DisplayToLogin", sender: self)
@@ -40,9 +40,11 @@ class ProfileDisplay: BaseVC {
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateButton.isHidden = true
+        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         
@@ -65,8 +67,14 @@ class ProfileDisplay: BaseVC {
         } else {
             instruments.text = "None"
         }
+        //let resp = get(action:"get_profile_picture", searchBy:["email":self.passed["email"]!])
+        //print(resp)
+        //let picture = resp.json as! [[String:Any]]
+        //Ωprint(picture[0]["base64"] as! String)
+
+       // self.profilePic.image  = DecodeImage(fromBase64: picture[0]["base64"] as! String)
+        
         editName.isHidden = true
-        editEmail.isHidden = true
         editLocation.isHidden = true
         editPhone.isHidden = true
         editRole.isHidden = true
@@ -79,8 +87,9 @@ class ProfileDisplay: BaseVC {
     }
     
     @IBAction func editProfile(_ sender: Any) {
+        updateButton.isHidden = false
+        
         editName.text = name.text
-        editEmail.text = email.text
         editLocation.text = location.text
         editPhone.text = phone.text
         editRole.text = role.text
@@ -90,34 +99,20 @@ class ProfileDisplay: BaseVC {
         name.font = name.font.withSize(17);
         
         name.text = "Name: "
-        email.text = "Email: "
         location.text = "Location: "
         phone.text = "Phone #: "
         role.text = "Role: "
         bio.text = "Bio: "
         
         editName.isHidden = false
-        editEmail.isHidden = false
         editLocation.isHidden = false
         editPhone.isHidden = false
         editRole.isHidden = false
         editBio.isHidden = false
-        
-//        let editJson: [String: Any] = [
-//            "email":email.text!,
-//            "name":name.text!,
-//            "role":role.text!,
-//            "location":location.text!,
-//            "bio":bio.text!,
-//            "phone":phone.text!,
-//            "genres":genres.text!,
-//            "instruments":instruments.text!
-//        ]
-        
     }
+    
     @IBAction func updateProfile(_ sender: Any) {
         editName.isHidden = true
-        editEmail.isHidden = true
         editLocation.isHidden = true
         editPhone.isHidden = true
         editRole.isHidden = true
@@ -125,25 +120,24 @@ class ProfileDisplay: BaseVC {
         
         name.textAlignment = NSTextAlignment.center;
         name.font = name.font.withSize(25);
-
-        
-        name.text = editName.text
-        email.text = editEmail.text
-        location.text = editLocation.text
-        phone.text = editPhone.text
-        role.text = editRole.text
-        bio.text = editBio.text
         
         let json: [String: Any] = [
-            "email":email.text!,
-            "name" : name.text!,
-            "role": role.text!,
-            "location": location.text!,
-            "bio":bio.text!,
-            "phone":phone.text!,
+            "name" : editName.text!,
+            "role": editRole.text!,
+            "location": editLocation.text!,
+            "bio": editBio.text!,
+            "phone": editPhone.text!,
         ]
+        
         let response = post(action: "edit_profile", json: json,with: ["email": email.text!])
-        print(response.statusCode!)
+        
+        if (self.handleResponse(statusCode: response.statusCode)) {
+            name.text = editName.text
+            location.text = editLocation.text
+            phone.text = editPhone.text
+            role.text = editRole.text
+            bio.text = editBio.text
+        }
         
     }
     

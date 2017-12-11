@@ -35,7 +35,8 @@ class GroupCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
         } else if (LocationIn.text! == "") {
             self.createAlert(title: "Attention", message: "Location required")
         } else {
-            print (selectedGroupGenres)
+
+
             let json: [String: Any] = [
                 "group name": groupNameIn.text!,
                 "location": LocationIn.text!,

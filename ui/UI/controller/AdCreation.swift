@@ -8,14 +8,54 @@
 
 import UIKit
 
-class AdCreation: BaseVC {
+class AdCreation: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource{
 
     var email = ""
     
     @IBOutlet weak var LookingForIn: UITextField!
-    @IBOutlet weak var InstrumentIn: UITextField!
-    @IBOutlet weak var GenreIn: UITextField!
+    @IBOutlet weak var instrumentsIn: UIPickerView!
+    @IBOutlet weak var genresIn: UIPickerView!
     @IBOutlet weak var DescriptionIn: UITextField!
+    
+    //Genres to pick from
+    var genreData: [String] = ["Blues", "Classical", "Country", "Electronic", "Emo", "Folk","Funk","Hardcore","Hip Hop", "Jazz", "Latin","Metal", "Pop", "Punk", "R&B", "Reggae", "Rock"]
+    //Instruments to pick from
+    var instrumentData: [String] = ["Guitar","Bass","Drums"]
+    
+    //selected genre/instrument
+    var selectedGenres = String()
+    var selectedInstruments = String()
+    
+    //Roles picker view Functions
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component:Int) -> String? {
+        if pickerView == self.genresIn{
+            return genreData[row]
+        }
+        else{
+            return instrumentData[row]
+        }
+        
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == self.genresIn{
+            return genreData.count
+        }
+        else{
+            return instrumentData.count
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == self.genresIn{
+            self.selectedGenres = genreData[row]
+        }
+        else{
+            self.selectedInstruments = instrumentData[row]
+        }
+        //self.roleIn = roles[row]
+    }
     
     @IBAction func SubmitAd(_ sender: AnyObject) {
         
@@ -29,15 +69,18 @@ class AdCreation: BaseVC {
             let json: [String: Any] = [
                 "description":DescriptionIn.text!,
                 "looking_for" : LookingForIn.text!,
-                "genre" : GenreIn.text!,
-                "instrument": InstrumentIn.text!,
+                "genre" : selectedGenres,
+                "instrument": selectedInstruments,
                 ]
             let resp = post(action: "create_profile_ad", json: json, with: ["email": email])
             if self.handleResponse(statusCode: resp.statusCode!){
+
                 let myVC = storyboard?.instantiateViewController(withIdentifier: "The Hub") as! AdTableViewController
                 
                 myVC.passed["email"] = self.passed["email"]
                 navigationController?.pushViewController(myVC, animated: true)
+
+
             }
         }
     }
@@ -45,6 +88,10 @@ class AdCreation: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.email = self.passed["email"] as! String
+        //Genres and Instruments stuff
+        instrumentsIn.delegate = self
+        genresIn.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -52,8 +99,7 @@ class AdCreation: BaseVC {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
+   
     /*
     // MARK: - Navigation
 
