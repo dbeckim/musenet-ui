@@ -48,7 +48,6 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
-<<<<<<< HEAD
         name.textAlignment = .center
         imagePicker.delegate = self
         
@@ -62,10 +61,8 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         update.layer.cornerRadius = 5
         update.layer.borderWidth = 1
         update.layer.borderColor=UIColor.lightGray.cgColor
-=======
         updateButton.isHidden = true
         
->>>>>>> b1fd4d12c1eae9f252555931a1f0192733bce0bb
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         
@@ -130,14 +127,11 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     
     
     @IBAction func editProfile(_ sender: Any) {
-<<<<<<< HEAD
         update.isHidden = false
         editProPic.isHidden = false
         
         name.textAlignment = .left
-=======
         updateButton.isHidden = false
->>>>>>> b1fd4d12c1eae9f252555931a1f0192733bce0bb
         
         editName.text = name.text
         editLocation.text = location.text
@@ -172,43 +166,29 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         
         name.textAlignment = .center;
         name.font = name.font.withSize(25);
-<<<<<<< HEAD
 
         name.text = editName.text
-        email.text = editEmail.text
         location.text = editLocation.text
         phone.text = editPhone.text
         role.text = editRole.text
         bio.text = editBio.text
-=======
->>>>>>> b1fd4d12c1eae9f252555931a1f0192733bce0bb
         
         let b64Pic = EncodeImage(image: profilePic.image!)
-        
-        let json: [String: Any] = [
-<<<<<<< HEAD
-            "name" : name.text!,
-            "role": role.text!,
-            "location": location.text!,
-            "bio":bio.text!,
-            "phone":phone.text!
-        ]
         
         let picJson: [String: Any] = [
             "base64" : b64Pic
         ]
         
         //EDIT PROFILE POST
-=======
+        let editjson: [String: Any] = [
             "name" : editName.text!,
             "role": editRole.text!,
             "location": editLocation.text!,
             "bio": editBio.text!,
-            "phone": editPhone.text!,
+            "phone": editPhone.text!
         ]
         
->>>>>>> b1fd4d12c1eae9f252555931a1f0192733bce0bb
-        let response = post(action: "edit_profile", json: json,with: ["email": email.text!])
+        let response = post(action: "edit_profile", json: editjson,with: ["email": email.text!])
         
         if (self.handleResponse(statusCode: response.statusCode)) {
             name.text = editName.text
