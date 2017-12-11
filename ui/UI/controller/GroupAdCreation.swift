@@ -43,7 +43,10 @@ class GroupAdCreation: BaseVC, UIPickerViewDelegate, UIPickerViewDataSource, UIT
                 ]
             let resp = post(action: "create_group_ad", json: json, with: ["group_id" : group_id])
             if self.handleResponse(statusCode: resp.statusCode!){
-                self.performSegue(withIdentifier: "GroupAdCreated", sender: self)
+                let myVC = storyboard?.instantiateViewController(withIdentifier: "The Hub") as! AdTableViewController
+                
+                myVC.passed["email"] = self.passed["email"]
+                navigationController?.pushViewController(myVC, animated: true)
             }
         }
     }

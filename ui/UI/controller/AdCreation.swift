@@ -34,7 +34,10 @@ class AdCreation: BaseVC {
                 ]
             let resp = post(action: "create_profile_ad", json: json, with: ["email": email])
             if self.handleResponse(statusCode: resp.statusCode!){
-                self.performSegue(withIdentifier: "AdCreated", sender: self)
+                let myVC = storyboard?.instantiateViewController(withIdentifier: "The Hub") as! AdTableViewController
+                
+                myVC.passed["email"] = self.passed["email"]
+                navigationController?.pushViewController(myVC, animated: true)
             }
         }
     }

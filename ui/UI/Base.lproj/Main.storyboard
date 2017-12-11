@@ -490,16 +490,37 @@ Password</string>
         <scene sceneID="KBg-9U-DQM">
             <objects>
                 <tableViewController storyboardIdentifier="The Hub" title="The Hub" id="6XW-Ik-gng" customClass="AdTableViewController" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="30" sectionFooterHeight="30" id="pRb-1u-97Y">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="1" sectionFooterHeight="1" id="pRb-1u-97Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <toolbar key="tableHeaderView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="lQ4-iF-fjB">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="All Results:" width="360.5" id="q9b-ma-QPi">
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="uhf-Si-aeF">
+                            <rect key="frame" x="0.0" y="155" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="Find Matches" width="128" id="gcI-fc-pIO">
+                                    <connections>
+                                        <action selector="FindMatches:" destination="6XW-Ik-gng" id="Tkm-sL-yVy"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                            <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdTableViewCell" rowHeight="110" id="RDi-NU-wzT" customClass="AdTableViewCell" customModule="UI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="30" width="375" height="110"/>
+                                <rect key="frame" x="0.0" y="45" width="375" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RDi-NU-wzT" id="UA7-zj-KgM">
-                                    <frame key="frameInset" width="375" height="109.5"/>
+                                    <frame key="frameInset" width="375" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGT-Jf-l3N">
@@ -558,6 +579,10 @@ Password</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="FindMatchesBar" destination="uhf-Si-aeF" id="1UB-IG-3dH"/>
+                        <outlet property="FindMatchesButton" destination="gcI-fc-pIO" id="hiZ-kT-FcG"/>
+                        <outlet property="ResultsLabel" destination="q9b-ma-QPi" id="cku-x7-jB9"/>
+                        <outlet property="TheHubHeader" destination="lQ4-iF-fjB" id="8Vh-2b-yLz"/>
                         <outlet property="tableView" destination="pRb-1u-97Y" id="KDg-JV-dnE"/>
                         <segue destination="HkO-SY-yrr" kind="show" identifier="HubToProfile" id="9Vn-92-MmS"/>
                         <segue destination="k0n-LA-X9F" kind="show" identifier="AdTypeSelection" id="aSu-gU-4RJ"/>
