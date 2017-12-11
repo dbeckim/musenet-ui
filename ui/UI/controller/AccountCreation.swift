@@ -128,6 +128,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
     override func viewDidLoad() {
         super.viewDidLoad()
         //Location Stuff
+        rolesIn.delegate = self
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .notDetermined{
             self.locationManager.requestWhenInUseAuthorization()
