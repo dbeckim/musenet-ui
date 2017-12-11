@@ -1,6 +1,5 @@
 //
 //  GroupCreation.swift
-//  GroupCreation
 //
 //  Created by MN Team on 11/30/17.
 //  Copyright © 2017 Kevin S Delay. All rights reserved.
@@ -35,6 +34,8 @@ class GroupCreation: BaseVC, UITableViewDelegate, UITableViewDataSource {
         } else if (LocationIn.text! == "") {
             self.createAlert(title: "Attention", message: "Location required")
         } else {
+
+
             let json: [String: Any] = [
                 "group name": groupNameIn.text!,
                 "location": LocationIn.text!,
