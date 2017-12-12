@@ -91,7 +91,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
          else if (LocationIn.text! == "") {
             self.createAlert(title: "Attention", message: "Location required")
         } else {
-            let json: [String: Any] = [
+            var json: [String: Any] = [
                 "email":EmailIn.text!,
                 "name" : NameIn.text!,
                 "password" : PasswordIn.text!,
@@ -105,6 +105,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
             ]
             
             let resp = post(action: "create_profile", json: json)
+            
             //testing of the picture submission stuff not working ATM
             if self.handleResponse(statusCode: resp.statusCode) {
               //  let picJson: [String: Any]=[
@@ -112,8 +113,10 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
                 //print(picJson["base64"])
                 //let resp = post(action:"add_profile_picture",json:picJson, with: ["email": json["email"]!,"main":true])
                 //print (resp)
+              self.passed = json
+              self.performSegue(withIdentifier: "CreationToDisplay", sender: self)
+              //self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
                 
-              self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
             }
         }
         

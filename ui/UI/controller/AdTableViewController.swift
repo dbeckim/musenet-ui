@@ -23,7 +23,9 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
     
     
     @IBAction func hubToProfile(_ sender: AnyObject) {
-        segueProfile(email: self.passed["email"], segueName: "HubToProfile")
+        //self.passed["otherProfile"]
+        performSegue(withIdentifier: "HubToProfile", sender: self)
+        //segueProfile(email: self.passed["email"], segueName: "HubToProfile")
     }
     
     var ads = [Ad]()
@@ -32,7 +34,6 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
     
     
     override func viewDidLoad() {
-
         self.refreshControl.addTarget(self, action: #selector(AdTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
 
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -83,7 +84,6 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
                 //Add a new ad object to the table
                 ads.append(Ad(role: "Band", lookingFor: ad["looking_for"]! as! String, location: group["location"] as! String, contactEmail: group["email"] as! String, adDescription: ad["description"] as! String, name: group["name"] as! String))
             }
-            
         }
         
     }
