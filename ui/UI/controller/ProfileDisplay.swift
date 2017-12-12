@@ -128,7 +128,7 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         editProPic.isHidden = false
         
         name.textAlignment = .left
-        updateButton.isHidden = false
+        //updateButton.isHidden = false
         
         editName.text = name.text
         editLocation.text = location.text
