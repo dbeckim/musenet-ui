@@ -12,6 +12,8 @@ import CoreData
 class BaseVC: UIViewController, UITextFieldDelegate {
     //email for this session
     var passed = [String: Any]()
+    var otherProfile : String?
+
     var base64:String?
     func segueProfile(email: Any!, segueName: String) {
         let email = email as! String

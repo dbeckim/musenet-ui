@@ -49,7 +49,9 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
     
     
     @IBAction func hubToProfile(_ sender: AnyObject) {
-        segueProfile(email: self.passed["email"], segueName: "HubToProfile")
+        //self.passed["otherProfile"]
+        performSegue(withIdentifier: "HubToProfile", sender: self)
+        //segueProfile(email: self.passed["email"], segueName: "HubToProfile")
     }
     
     var ads = [Ad]()
@@ -58,8 +60,6 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
     
     
     override func viewDidLoad() {
-
-    
 
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewDidLoad()
@@ -153,6 +153,7 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
                     ads.append(Ad(role: "Band", lookingFor: ad["looking_for"]! as! String, location: group["location"] as! String, contactEmail: group["email"] as! String, adDescription: ad["description"] as! String, name: group["name"] as! String, instrument : ad["instrument"] as! String, genre : ad["genre"] as! String, id : ad["ad_id"] as! Int))
                 }
             }
+
         }else{
             createAlert(title: "Error", message: "No ads found.")
         }

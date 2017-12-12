@@ -19,6 +19,7 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     @IBOutlet weak var genres: UILabel!
     @IBOutlet weak var instruments: UILabel!
     @IBOutlet weak var bio: UILabel!
+    @IBOutlet weak var otherEmail: UILabel!
     
     @IBOutlet weak var editName: UITextField!
     @IBOutlet weak var editLocation: UITextField!
@@ -55,6 +56,20 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (self.otherProfile != nil)
+        {
+            //do get for json profile information
+            //set self.passed = json
+            
+            editprof.isHidden = true
+        }
+        name.text = self.passed["name"] as? String
+        email.text = self.passed["email"] as? String
+        role.text = self.passed["role"] as? String
+        phone.text = self.passed["phone"] as? String
+        location.text = self.passed["location"] as? String
+        bio.text = self.passed["bio"] as? String
+        
         name.textAlignment = .center
         imagePicker.delegate = self
         
@@ -69,7 +84,7 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         update.layer.borderWidth = 1
         update.layer.borderColor=UIColor.lightGray.cgColor
             self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
+
         YourPostsButton.layer.borderWidth = 2.0
         YourPostsButton.layer.cornerRadius = 5
         YourPostsButton.layer.borderWidth = 1
@@ -113,8 +128,8 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         
         self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2;
         profilePic.clipsToBounds = true;
-        profilePic.layer.borderWidth = 4
-        profilePic.layer.borderColor = UIColor.black.cgColor
+        profilePic.layer.borderWidth = 5
+        profilePic.layer.borderColor = UIColor.white.cgColor
         
         name.textAlignment = NSTextAlignment.center;
     }
@@ -141,7 +156,6 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     @IBAction func editProfile(_ sender: Any) {
         update.isHidden = false
         editProPic.isHidden = false
-        
         name.textAlignment = .left
 
         
