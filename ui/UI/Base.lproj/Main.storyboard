@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -287,12 +288,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRS-D0-Qd1">
+                                <frame key="frameInset" minX="151" minY="612" width="106" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.39212113618850708" blue="0.98442202806472778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Your Posts">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ViewYourPosts:" destination="HkO-SY-yrr" eventType="touchUpInside" id="i8N-uR-VHO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.090944297611713409" green="0.30545133352279663" blue="0.67187255620956421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="YourPostsButton" destination="fRS-D0-Qd1" id="9Fh-89-tNV"/>
                         <outlet property="bio" destination="YuS-ZK-Txa" id="eMM-dX-TBi"/>
                         <outlet property="editBio" destination="nPV-AK-nk0" id="gmJ-aV-rhn"/>
                         <outlet property="editLocation" destination="pCn-zT-eRs" id="ZJQ-J8-x0m"/>
@@ -599,17 +612,22 @@ Password</string>
                                 <action selector="hubToProfile:" destination="6XW-Ik-gng" id="mAn-tZ-5LW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RnG-rP-lDf">
-                            <connections>
-                                <action selector="AdTypeSelection:" destination="6XW-Ik-gng" id="8IL-hX-osH"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="RnG-rP-lDf">
+                                <connections>
+                                    <action selector="AdTypeSelection:" destination="6XW-Ik-gng" id="8IL-hX-osH"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Edit" id="CV2-Nb-yNM" userLabel="Edit Ad Button"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="CreateAdButton" destination="RnG-rP-lDf" id="MKm-OU-u1H"/>
                         <outlet property="FindMatchesBar" destination="uhf-Si-aeF" id="1UB-IG-3dH"/>
                         <outlet property="FindMatchesButton" destination="gcI-fc-pIO" id="hiZ-kT-FcG"/>
                         <outlet property="ResultsLabel" destination="q9b-ma-QPi" id="cku-x7-jB9"/>
                         <outlet property="TheHubHeader" destination="lQ4-iF-fjB" id="8Vh-2b-yLz"/>
+                        <outlet property="editAdsButton" destination="CV2-Nb-yNM" id="x4h-FV-i84"/>
                         <outlet property="tableView" destination="pRb-1u-97Y" id="KDg-JV-dnE"/>
                         <segue destination="HkO-SY-yrr" kind="show" identifier="HubToProfile" id="9Vn-92-MmS"/>
                         <segue destination="k0n-LA-X9F" kind="show" identifier="AdTypeSelection" id="aSu-gU-4RJ"/>
@@ -848,6 +866,14 @@ Password</string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aK7-JY-BLP">
+                                <frame key="frameInset" minX="288" minY="541" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="EditAd:" destination="tks-1e-dzb" eventType="touchUpInside" id="GDN-Zj-7uR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -856,12 +882,113 @@ Password</string>
                         <outlet property="DescLabel" destination="H1w-oK-f5G" id="scn-Uh-fW1"/>
                         <outlet property="LocationLabel" destination="cwH-5x-60Y" id="u4u-UX-V4O"/>
                         <outlet property="NameLabel" destination="s9q-bY-W6t" id="RnA-om-Deg"/>
+                        <outlet property="adEditButton" destination="aK7-JY-BLP" id="Dq6-dJ-lxF"/>
                         <outlet property="role" destination="9CN-O4-67j" id="Wg4-X3-CVw"/>
+                        <segue destination="VlM-Xr-Ens" kind="show" id="3MC-ne-BoU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9pj-nb-MbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1656.8" y="823.53823088455783"/>
+        </scene>
+        <!--EditAd-->
+        <scene sceneID="RK9-tY-QWc">
+            <objects>
+                <viewController storyboardIdentifier="EditAd" title="EditAd" id="VlM-Xr-Ens" customClass="EditAd" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mSh-oH-tj8"/>
+                        <viewControllerLayoutGuide type="bottom" id="FzG-q4-x2g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZNp-2k-gO7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXt-Ww-hXU">
+                                <frame key="frameInset" minY="140" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Looking For" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMh-tx-hpy">
+                                <frame key="frameInset" minX="1" minY="213" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7J-2c-QFz">
+                                <frame key="frameInset" minX="44" minY="391" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yu4-0r-snA">
+                                <frame key="frameInset" minX="3" minY="474" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TP5-3Q-zlR">
+                                <frame key="frameInset" minX="99" minY="140" width="241" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PiX-iY-ohY">
+                                <frame key="frameInset" minX="99" minY="204" width="241" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3gj-68-DPP">
+                                <frame key="frameInset" minX="99" minY="469" width="241" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TXU-3S-3yq">
+                                <frame key="frameInset" minX="130" minY="268" height="80" maxX="130"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vf3-a2-Xxe">
+                                <frame key="frameInset" minX="121" minY="365" height="89" maxX="122"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lx2-3E-Bv8">
+                                <frame key="frameInset" minX="292" minY="550" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="UpdateAd:" destination="VlM-Xr-Ens" eventType="touchUpInside" id="4Me-S3-T3M"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instrument" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxB-B6-3Q1">
+                                <frame key="frameInset" minX="8" minY="298" width="83" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionEdit" destination="3gj-68-DPP" id="aBL-vI-CvI"/>
+                        <outlet property="genreEdit" destination="vf3-a2-Xxe" id="fpc-99-Ga7"/>
+                        <outlet property="instrumentEdit" destination="TXU-3S-3yq" id="QhN-59-lkb"/>
+                        <outlet property="lookingForEdit" destination="PiX-iY-ohY" id="KiR-Eu-dag"/>
+                        <outlet property="nameLabel" destination="TP5-3Q-zlR" id="HcP-fk-bdN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mKC-Ku-pex" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2501.5999999999999" y="823.53823088455783"/>
         </scene>
         <!--Group Display-->
         <scene sceneID="wUp-MU-JPg">
@@ -1028,9 +1155,9 @@ Password</string>
         <image name="cat" width="295" height="214"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="KCd-IW-NfW"/>
+        <segue reference="9Vn-92-MmS"/>
         <segue reference="fMc-fa-wJq"/>
-        <segue reference="dq0-wT-UJi"/>
-        <segue reference="XsV-NL-II2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44178953923794562" green="0.6494189564646764" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

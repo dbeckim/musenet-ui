@@ -10,22 +10,26 @@ import UIKit
 
 class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var editAdsButton: UIBarButtonItem!
     @IBOutlet weak var TheHubHeader: UIToolbar!
 
     @IBOutlet weak var FindMatchesBar: UIToolbar!
     
     @IBOutlet weak var ResultsLabel: UIBarButtonItem!
+    @IBOutlet weak var CreateAdButton: UIBarButtonItem!
     
     var matching = false
+    var viewProfileAds = false
+    var viewGroupAds = false
     
     @IBAction func FindMatches(_ sender: AnyObject) {
         matching = !matching
         if matching{
-            loadAds(match: true)
+            loadAds(match: true, ProfileAds: false, GroupAds: false)
             FindMatchesButton.title = "All Results"
             ResultsLabel.title = "Your Matches:"
         }else{
-            loadAds(match: false)
+            loadAds(match: false, ProfileAds: false, GroupAds: false)
             FindMatchesButton.title = "Find Matches"
             ResultsLabel.title = "All Results:"
         }
@@ -59,13 +63,55 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
 
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = nil
+        if viewProfileAds{
+            self.navigationItem.rightBarButtonItem = nil
+            self.CreateAdButton.isEnabled = false
+            FindMatchesBar.isHidden = true
+            TheHubHeader.isHidden = true
+            self.title = "Your Ads"
+            loadAds(match : false, ProfileAds: true, GroupAds: false)
+        }else if viewGroupAds{
+            self.navigationItem.rightBarButtonItem = nil
+            self.title = "Your Ads"
+            FindMatchesBar.isHidden = true
+            TheHubHeader.isHidden = true
+            loadAds(match : false, ProfileAds: false, GroupAds: true)
+        }else{
+            self.navigationItem.rightBarButtonItem = CreateAdButton
+            self.title = "The Hub"
+            loadAds(match : false, ProfileAds: false, GroupAds: false)
+        }
         
-        loadAds(match : false)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = nil
+        if viewProfileAds{
+            self.navigationItem.rightBarButtonItem = nil
+            //self.CreateAdButton.isEnabled = false
+            FindMatchesBar.isHidden = true
+            TheHubHeader.isHidden = true
+            self.title = "Your Ads"
+            loadAds(match : false, ProfileAds: true, GroupAds: false)
+        }else if viewGroupAds{
+            self.navigationItem.rightBarButtonItem = nil
+            self.title = "Your Ads"
+            FindMatchesBar.isHidden = true
+            TheHubHeader.isHidden = true
+            loadAds(match : false, ProfileAds: false, GroupAds: true)
+        }else{
+            self.navigationItem.rightBarButtonItem = CreateAdButton
+            self.title = "The Hub"
+            loadAds(match : false, ProfileAds: false, GroupAds: false)
+        }
     }
     
     
@@ -76,12 +122,16 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
         // Dispose of any resources that can be recreated.
     }
     
-    private func loadAds(match : Bool) {
+    private func loadAds(match : Bool, ProfileAds : Bool, GroupAds : Bool) {
         ads.removeAll()
         var adResp = get(action : "get_ads")
         //For now, load all ads without filtering by role, looking for, etc.
         if match{
+            adResp = get(action: "match_ads", searchBy: ["email" : self.passed["email"]!])
+        }else if ProfileAds{
             adResp = get(action: "get_ads", searchBy: ["email" : self.passed["email"]!])
+        }else if GroupAds{
+            adResp = get(action: "get_ads", searchBy: ["group_id" : self.passed["groupId"]!])
         }
         print(adResp.json)
         
@@ -94,13 +144,13 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
                     //load in the profile associated with the ad
                     let profile = profileResp.json! as! [String: Any]
                     //Add a new ad object to the table
-                    ads.append(Ad(role: profile["role"] as! String, lookingFor: ad["looking_for"]! as! String, location: profile["location"] as! String, contactEmail: email, adDescription: ad["description"] as! String, name: profile["name"] as! String))
+                    ads.append(Ad(role: profile["role"] as! String, lookingFor: ad["looking_for"]! as! String, location: profile["location"] as! String, contactEmail: email, adDescription: ad["description"] as! String, name: profile["name"] as! String, instrument : ad["instrument"] as! String, genre : ad["genre"] as! String, id : ad["ad_id"] as! Int))
                 }else{
                     let groupResp = get(action: "get_group", searchBy: ["group_id": "\(ad["group_id"]!)"])
                     //load in the group associated with the ad
                     let group = groupResp.json! as! [String: Any]
                     //Add a new ad object to the table
-                    ads.append(Ad(role: "Band", lookingFor: ad["looking_for"]! as! String, location: group["location"] as! String, contactEmail: group["email"] as! String, adDescription: ad["description"] as! String, name: group["name"] as! String))
+                    ads.append(Ad(role: "Band", lookingFor: ad["looking_for"]! as! String, location: group["location"] as! String, contactEmail: group["email"] as! String, adDescription: ad["description"] as! String, name: group["name"] as! String, instrument : ad["instrument"] as! String, genre : ad["genre"] as! String, id : ad["ad_id"] as! Int))
                 }
             }
         }else{
@@ -160,11 +210,16 @@ class AdTableViewController: BaseVC, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let ad = ads[indexPath.row]
         let myVC = storyboard?.instantiateViewController(withIdentifier: "ShowAd") as! AdShow
+        if viewProfileAds || viewGroupAds{
+            myVC.editable = true
+        }
         
         myVC.ad = ad 
         navigationController?.pushViewController(myVC, animated: true)
         
     }
+    
+   
     
     
 
