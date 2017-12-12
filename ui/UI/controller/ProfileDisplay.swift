@@ -35,6 +35,14 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     @IBOutlet weak var editProPic: UIButton!
     @IBOutlet weak var profilePic: UIImageView!
     
+    @IBOutlet weak var YourPostsButton: UIButton!
+    
+    @IBAction func ViewYourPosts(_ sender: Any) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "The Hub") as! AdTableViewController
+        myVC.viewProfileAds = true
+        myVC.passed["email"] = self.passed["email"]
+        navigationController?.pushViewController(myVC, animated: true)
+    }
     
     @IBAction func logout(_ sender: Any) {
         self.performSegue(withIdentifier: "DisplayToLogin", sender: self)
@@ -76,6 +84,20 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         update.layer.borderWidth = 1
         update.layer.borderColor=UIColor.lightGray.cgColor
             self.navigationController?.setNavigationBarHidden(true, animated: true)
+
+        YourPostsButton.layer.borderWidth = 2.0
+        YourPostsButton.layer.cornerRadius = 5
+        YourPostsButton.layer.borderWidth = 1
+        YourPostsButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        
+        name.text = self.passed["name"] as? String
+        email.text = self.passed["email"] as? String
+        role.text = self.passed["role"] as? String
+        phone.text = self.passed["phone"] as? String
+        location.text = self.passed["location"] as? String
+        bio.text = self.passed["bio"] as? String
+        
         
         if let genre_list = (self.passed["genres"] as? [String]) {
             genres.text = genre_list.joined(separator: ", ")
@@ -88,12 +110,13 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         } else {
             instruments.text = "None"
         }
-        //let resp = get(action:"get_profile_picture", searchBy:["email":self.passed["email"]!])
-        //print(resp)
-        //let picture = resp.json as! [[String:Any]]
-        //Ωprint(picture[0]["base64"] as! String)
+        let resp = get(action:"get_profile_picture", searchBy:["email":self.passed["email"]!])
+        print(resp)
+        if let picture = resp.json as? [[String:Any]]{
+        //print(picture[0]["base64"] as! String! == self.base64! )
 
-       // self.profilePic.image  = DecodeImage(fromBase64: picture[0]["base64"] as! String)
+            self.profilePic.image  = DecodeImage(fromBase64: picture[0]["base64"] as! String!)
+        }
         
         editName.isHidden = true
         editLocation.isHidden = true
@@ -120,8 +143,9 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject])
     {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        if var pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
+            
             profilePic.contentMode = .scaleAspectFit
             profilePic.image = pickedImage
         }
@@ -133,6 +157,7 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         update.isHidden = false
         editProPic.isHidden = false
         name.textAlignment = .left
+
         
         editName.text = name.text
         editLocation.text = location.text

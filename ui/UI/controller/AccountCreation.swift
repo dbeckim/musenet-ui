@@ -26,7 +26,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
     var selectedInstruments = [String]()
     var chosenImage = UIImage()
     var roleIn = String()
-    
+    var locationCoords: String?
     let roles = ["Member","Producer","Hype-man"]
     
     //IBOutlets
@@ -74,9 +74,17 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
         self.present(imagePicker,animated:true,completion: nil)
     }
     
-    //Grabs longitutde and lattitude coordinate not doing anything with it ATM
+    
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        locationCoords = ("\(locValue.latitude):\(locValue.longitude)")
+        //print(locationCoords)
+        
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        locationCoords = nil
     }
     
     @IBAction func submit(_ sender: Any) {
@@ -96,7 +104,7 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
                 "name" : NameIn.text!,
                 "password" : PasswordIn.text!,
                 "role": self.roleIn,
-                "location": LocationIn.text!,
+                "location": locationCoords!,
                 "bio":BioIn.text!,
                 "phone":PhoneIn.text!,
                 "genres":selectedGenres,
@@ -107,16 +115,21 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
             let resp = post(action: "create_profile", json: json)
             
             //testing of the picture submission stuff not working ATM
+            print(resp)
             if self.handleResponse(statusCode: resp.statusCode) {
-              //  let picJson: [String: Any]=[
-                //    "base64":EncodeImage(image: self.chosenImage)]
+                let temp = EncodeImage(image: self.chosenImage)
+                let picJson: [String: Any]=[
+                    "base64":temp,
+                    "main":true]
                 //print(picJson["base64"])
-                //let resp = post(action:"add_profile_picture",json:picJson, with: ["email": json["email"]!,"main":true])
-                //print (resp)
               self.passed = json
-              self.performSegue(withIdentifier: "CreationToDisplay", sender: self)
-              //self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
-                
+                let resp2 = post(action:"add_profile_picture",json:picJson, with: ["email": EmailIn.text!])
+                print (resp2)
+                if resp2.ok{
+                    self.base64 = temp
+                    
+                }
+                self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
             }
         }
         
@@ -135,10 +148,13 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .notDetermined{
             self.locationManager.requestWhenInUseAuthorization()
+            locationCoords = nil
         }
         if CLLocationManager.locationServicesEnabled(){
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
+            
+           // locationManager.stopUpdatingLocation()
         }
         PhoneIn.delegate = self
         //Image Picker delegate Setting to self didnt work but this does?

@@ -13,7 +13,8 @@ class BaseVC: UIViewController, UITextFieldDelegate {
     //email for this session
     var passed = [String: Any]()
     var otherProfile : String?
-    
+
+    var base64:String?
     func segueProfile(email: Any!, segueName: String) {
         let email = email as! String
         
@@ -32,6 +33,7 @@ class BaseVC: UIViewController, UITextFieldDelegate {
         case "CreationToDisplay":
             let dest = segue.destination as! ProfileDisplay
             dest.passed = self.passed
+            dest.base64 = self.base64
             break
             
         case "LoginToDisplay":

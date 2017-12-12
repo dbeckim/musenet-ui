@@ -20,6 +20,7 @@
 		527A20E61FB2840200E43630 /* ProfileDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A20E51FB2840200E43630 /* ProfileDisplay.swift */; };
 		52B290151FDF3F6600C90CA6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B290141FDF3F6600C90CA6 /* Default-568h@2x.png */; };
 		53BEEDCDEBD880C2DF0D8D62 /* Pods_UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6863F0BACF598C040B7439 /* Pods_UI.framework */; };
+		B239C2771FE0640A0058C275 /* AdEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239C2761FE0640A0058C275 /* AdEdit.swift */; };
 		B292FD831FC5FC110045419A /* AdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD821FC5FC110045419A /* AdTableViewController.swift */; };
 		B292FD851FC5FC380045419A /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD841FC5FC380045419A /* AdTableViewCell.swift */; };
 		B292FD871FC5FC610045419A /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292FD861FC5FC610045419A /* Ad.swift */; };
@@ -75,6 +76,7 @@
 		646868ADBDD7D67B5545674F /* Pods-UI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UI/Pods-UI.debug.xcconfig"; sourceTree = "<group>"; };
 		7D6863F0BACF598C040B7439 /* Pods_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E208773AF3699E3DA05E185 /* Pods-UIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UIUITests/Pods-UIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B239C2761FE0640A0058C275 /* AdEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdEdit.swift; sourceTree = "<group>"; };
 		B292FD821FC5FC110045419A /* AdTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTableViewController.swift; sourceTree = "<group>"; };
 		B292FD841FC5FC380045419A /* AdTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
 		B292FD861FC5FC610045419A /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				B292FD8E1FD7616D0045419A /* AdTypeSelect.swift */,
 				B292FD901FD76A5A0045419A /* GroupAdCreation.swift */,
 				B292FD921FD84C840045419A /* AdShow.swift */,
+				B239C2761FE0640A0058C275 /* AdEdit.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B239C2771FE0640A0058C275 /* AdEdit.swift in Sources */,
 				B292FD831FC5FC110045419A /* AdTableViewController.swift in Sources */,
 				B292FD871FC5FC610045419A /* Ad.swift in Sources */,
 				B292FD8D1FD760290045419A /* AdTypeButton.swift in Sources */,
