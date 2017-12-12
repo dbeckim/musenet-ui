@@ -20,14 +20,21 @@ class Ad: NSObject {
     var location : String = "their location"
     var contactEmail : String = "contact email"
     var adDescription : String = "description"
+    var instrument : String = "Instrument"
+    var genre : String = "genre"
+    var id : Int = 0
     
-    init(role: String, lookingFor: String, location: String, contactEmail: String, adDescription: String, name: String){
+    init(role: String, lookingFor: String, location: String, contactEmail: String, adDescription: String, name: String, instrument: String, genre: String, id : Int){
         self.role = role
         self.lookingFor = lookingFor
         self.location = location
         self.contactEmail = contactEmail
         self.adDescription = adDescription
         self.name = name
+        self.instrument = instrument
+        self.genre = genre
+        self.id = id
+        
     }
     
 }

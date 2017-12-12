@@ -114,16 +114,20 @@ class AccountCreation: BaseVC, UITableViewDelegate, UITableViewDataSource, UIIma
             
             let resp = post(action: "create_profile", json: json)
             //testing of the picture submission stuff not working ATM
+            print(resp)
             if self.handleResponse(statusCode: resp.statusCode) {
                 let temp = EncodeImage(image: self.chosenImage)
-              let picJson: [String: Any]=[
+                let picJson: [String: Any]=[
                     "base64":temp,
                     "main":true]
                 //print(picJson["base64"])
-                let resp = post(action:"add_profile_picture",json:picJson, with: ["email": EmailIn.text!])
-                 print (resp)
-                self.base64 = temp
-              self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
+                let resp2 = post(action:"add_profile_picture",json:picJson, with: ["email": EmailIn.text!])
+                print (resp2)
+                if resp2.ok{
+                    self.base64 = temp
+                    
+                }
+                self.segueProfile(email: json["email"], segueName: "CreationToDisplay")
             }
         }
         
