@@ -110,14 +110,17 @@ class ProfileDisplay: BaseVC, UIImagePickerControllerDelegate, UINavigationContr
         } else {
             instruments.text = "None"
         }
+        
         let resp = get(action:"get_profile_picture", searchBy:["email":self.passed["email"]!])
         print(resp)
-        if let picture = resp.json as? [[String:Any]]{
-        //print(picture[0]["base64"] as! String! == self.base64! )
+        if self.handleResponse(statusCode: resp.statusCode) {
+            if let picture = resp.json as? [[String:Any]]{
+            //print(picture[0]["base64"] as! String! == self.base64! )
 
-            self.profilePic.image  = DecodeImage(fromBase64: picture[0]["base64"] as! String!)
+                self.profilePic.image  = DecodeImage(fromBase64: picture[0]["base64"] as! String!)
+            }
         }
-        
+    
         editName.isHidden = true
         editLocation.isHidden = true
         editPhone.isHidden = true
